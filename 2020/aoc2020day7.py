@@ -104,7 +104,7 @@ def combine_dicts(primary, secondary, coefficient):
     return primary
 
 if __name__ == '__main__':
-    with open('resources/inputd7.txt', 'r') as f:
+    with open('../resources/2020/inputd7.txt', 'r') as f:
         test_input = f.read()
     #step_one('shiny:gold', input_str=test_input)
     step_two('shiny:gold', input_str=test_input)

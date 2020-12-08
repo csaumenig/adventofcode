@@ -191,7 +191,7 @@ def write_passport_file(passport_list: list, file_name) -> None:
 
 
 if __name__ == '__main__':
-    with open('resources/inputd4.txt', 'r') as f:
+    with open('../resources/2020/inputd4.txt', 'r') as f:
         test_input = f.read()
 
     passports = read_passports(test_input)
