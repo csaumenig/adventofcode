@@ -36,7 +36,7 @@ def get_spot_type(terrain_map: list,
 
 
 if __name__ == '__main__':
-    with open('resources/inputd3p1.txt', 'r') as f:
+    with open('resources/inputd3.txt', 'r') as f:
         test_input = f.read()
 
     print('Part1: ')

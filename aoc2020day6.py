@@ -27,7 +27,7 @@ def step_two(input_str: str):
 
 
 if __name__ == '__main__':
-    with open('resources/inputd6p1.txt', 'r') as f:
+    with open('resources/inputd6.txt', 'r') as f:
          test_input = f.read()
     # step_one(test_input)
     step_two(test_input)
