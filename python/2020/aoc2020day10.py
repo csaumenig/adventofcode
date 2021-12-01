@@ -1,4 +1,4 @@
-with open('../resources/2020/inputd10p1a.txt', 'r') as f:
+with open('inputd10p1a.txt', 'r') as f:
     test_input = f.read()
     num_list = list(map(int, test_input.split("\n")))
     num_list.sort()
@@ -29,7 +29,7 @@ with open('../resources/2020/inputd10p1a.txt', 'r') as f:
     # (0), 1, 4, 7, 10, 12, 15, 16, 19, (22)
 
 
-with open('../resources/2020/inputd10p1b.txt', 'r') as f:
+with open('inputd10p1b.txt', 'r') as f:
     test_input = f.read()
     num_list = list(map(int, test_input.split("\n")))
     num_list.sort()
@@ -50,7 +50,7 @@ with open('../resources/2020/inputd10p1b.txt', 'r') as f:
         0 if diffs.get(2) is None else diffs.get(2),
         0 if diffs.get(3) is None else diffs.get(3)))
 
-with open('../resources/2020/inputd10.txt', 'r') as f:
+with open('inputd10.txt', 'r') as f:
     test_input = f.read()
     num_list = list(map(int, test_input.split("\n")))
     num_list.sort()

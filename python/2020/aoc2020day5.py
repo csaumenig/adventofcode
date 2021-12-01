@@ -73,7 +73,7 @@ if __name__ == '__main__':
     #     b_pass = BoardingPass(code_string)
     # code_string    code_strings.update({code_string, b_pass.seat_id()})
 
-    with open('../resources/2020/inputd5.txt', 'r') as f:
+    with open('inputd5.txt', 'r') as f:
         test_input = f.read()
 
     code_strings = {}

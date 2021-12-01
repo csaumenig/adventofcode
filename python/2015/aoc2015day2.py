@@ -62,7 +62,7 @@ def compute(input_str: str):
 
 
 if __name__ == '__main__':
-    with open('../resources/2015/inputd2.txt', 'r') as f:
+    with open('inputd2.txt', 'r') as f:
         test_input = f.read()
         compute(test_input)
 

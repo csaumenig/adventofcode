@@ -22,7 +22,7 @@ def grid(file_name: str) -> list:
 
 
 def part1a():
-    my_grid = grid('../resources/2020/inputd11p1a.txt')
+    my_grid = grid('inputd11p1a.txt')
     changed = True
 
     while changed is True:
@@ -33,7 +33,7 @@ def part1a():
 
 
 def part1():
-    my_grid = grid('../resources/2020/inputd11.txt')
+    my_grid = grid('inputd11.txt')
     changed = True
 
     while changed is True:
@@ -44,7 +44,7 @@ def part1():
 
 
 def part2():
-    my_grid = grid('../resources/2020/inputd11.txt')
+    my_grid = grid('inputd11.txt')
     changed = True
 
     while changed is True:

@@ -19,7 +19,7 @@ def find_answer_part2(input_str: str):
 
 
 if __name__ == '__main__':
-    with open('../resources/2020/inputd1.txt', 'r') as f:
+    with open('inputd1.txt', 'r') as f:
         test_input = f.read()
 
     x1, x2, product1 = find_answer_part1(test_input)

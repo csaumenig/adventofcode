@@ -153,4 +153,4 @@ def waypoint(amount: int, ship_position: tuple, waypoint_position: tuple) -> tup
 # part1('../resources/2020/inputd12p1.txt')
 
 
-part2('../resources/2020/inputd12.txt')
+part2('inputd12.txt')

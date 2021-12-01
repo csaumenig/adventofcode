@@ -67,7 +67,7 @@ def part2(file_name: str):
                         raise ValueError
                     g += 1
 
-            mem_storage = convert_int_to_36_digit_binary(mem_amount)
+            memory_addresses = generate_memory_address_list(mem_spot, mask)
 
 
             mem_storage = apply_bitmask(mem_storage, mask)
@@ -80,6 +80,7 @@ def part2(file_name: str):
         mem_sum += mem_amount
 
     print('Sum of all memory is: {}'.format(mem_sum))
+
 
 def convert_int_to_36_digit_binary(number: int) -> list[int()]:
     quotient = number
@@ -118,4 +119,18 @@ def convert_36_digit_binary_to_int(bits: list[int()]) -> int:
     return number
 
 
-part1('../resources/2020/inputd14.txt')
+def generate_memory_address_list(mem_spot: int, mask: str) -> list:
+    memory_address_list = []
+
+    original = convert_int_to_36_digit_binary(mem_spot)
+    converted = apply_bitmask_2(original, mask)
+
+
+def apply_bitmask2(bits: list[int()], bitmask: str) -> list[int()]:
+    for i in range(0, len(bitmask)):
+        if (bitmask[i] == '1') or (bitmask[i] == 'X'):
+            bits[i] = bitmask[i]
+    return bits
+
+
+part1('inputd14.txt')

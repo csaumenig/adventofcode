@@ -1,4 +1,4 @@
-with open('../resources/2020/inputd9.txt', 'r') as f:
+with open('inputd9.txt', 'r') as f:
     test_input = f.read()
     num_list = list(map(int, test_input.split("\n")))
 

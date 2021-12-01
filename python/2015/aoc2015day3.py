@@ -49,11 +49,12 @@ def part2(directions: str) -> None:
             robosanta_position = get_position(robosanta_position, x)
             increment(robosanta_position)
             santa = True
-    print(f'Day 3 Part 2: Number of houses with 1 present: {len(list(filter(lambda count: count > 0, house_dict.values())))}')
+    total_houses = len(list(filter(lambda count: count > 0, house_dict.values())))
+    print(f'Day 3 Part 2: Number of houses with at least 1 present: {total_houses}')
 
 
 if __name__ == '__main__':
-    with open('../resources/2015/inputd3.txt', 'r') as f:
+    with open('inputd3.txt', 'r') as f:
         test_input = f.read()
         part1(test_input)
         part2(test_input)

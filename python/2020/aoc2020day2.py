@@ -78,7 +78,7 @@ def validate_password_part2(valid_count: str,
 
 
 if __name__ == '__main__':
-    with open('../resources/2020/inputd2.txt', 'r') as f:
+    with open('inputd2.txt', 'r') as f:
         test_input = f.read()
 
     count = find_answer_part1(test_input)

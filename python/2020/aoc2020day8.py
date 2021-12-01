@@ -187,7 +187,7 @@ def can_flip(command: str):
 
 
 if __name__ == '__main__':
-    with open('../resources/2020/inputd8.txt', 'r') as f:
+    with open('inputd8.txt', 'r') as f:
         test_input = f.read()
     handheld = HandHeld(test_input)
     handheld.step1()
