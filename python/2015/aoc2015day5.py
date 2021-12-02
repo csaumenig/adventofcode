@@ -41,12 +41,9 @@ def part2(input_str: str) -> None:
         for i in range(0, len(line.strip()) + 1):
             my_str = line.strip()[i:i+2]
             if len(my_str) == 2:
-                my_count = my_dict.get(my_str, 0)
-                my_dict.update({my_str: my_count + 1})
-
-        for k, v in my_dict.items():
-            if v >= 2:
-                print(f'{line.strip()}: {k} has count {v}')
+                if my_str != line.strip()[i-1:i+1]:
+                    my_count = my_dict.get(my_str, 0)
+                    my_dict.update({my_str: my_count + 1})
 
         pairs = list(filter(lambda count: count >= 2, my_dict.values()))
         count_of_pairs = len(pairs)
@@ -54,13 +51,22 @@ def part2(input_str: str) -> None:
             print(f'{line.strip()} has no pair of letters that appears twice')
             continue
 
-        my_dict_2: dict
+        for j in range(0, len(line.strip()) + 1):
+            my_str = line.strip()[j:j + 3]
+            if len(my_str) == 3:
+                if my_str[0] == my_str[2] and my_str[0] != my_str[1]:
+                    count += 1
+                    break
+    print(f'Day 5 Part 2: Number of nice strings: {count}')
+
 
 if __name__ == '__main__':
-    # test_string = '\n'.join(['ugknbfddgicrmopn', 'aaa', 'jchzalrnumimnmhp', 'haegwjzuvuyypxyu', 'dvszwmarrgswjxmb'])
-    # part1(test_string)
-    with open('inputd5.txt', 'r') as f:
+    # test_string_1 = '\n'.join(['ugknbfddgicrmopn', 'aaa', 'jchzalrnumimnmhp', 'haegwjzuvuyypxyu', 'dvszwmarrgswjxmb'])
+    # part1(test_string_1)
+    # test_string_2 = '\n'.join(['qjhvhtzxzqqjkmpb', 'xxyxx', 'uurcxstgmygtbstg', 'ieodomkazucvgmuy'])
+    # part2(test_string_2)
+
+    with open('../../resources/2015/inputd5.txt', 'r') as f:
         test_input = f.read()
-    # part1(test_input)
-    test_string = '\n'.join(['qjhvhtzxzqqjkmpb', 'xxyxx', 'uurcxstgmygtbstg', 'ieodomkazucvgmuy'])
-    part2(test_string)
+    part1(test_input)
+    part2(test_input)
