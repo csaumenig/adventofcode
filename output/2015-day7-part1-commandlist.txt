@@ -1,0 +1,678 @@
+1: line: 44430 -> b updated b to 44430
+2: line: b RSHIFT 5 -> f updated f to 1388
+3: line: b RSHIFT 3 -> e updated e to 5553
+4: line: 0 -> c updated c to 0
+5: line: e OR f -> g updated g to 5629
+6: line: c LSHIFT 1 -> t updated t to 0
+7: line: b RSHIFT 2 -> d updated d to 11107
+8: line: b RSHIFT 1 -> v updated v to 22215
+9: line: e AND f -> h updated h to 1312
+10: line: NOT h -> i updated i to 64223
+11: line: g AND i -> j updated j to 4317
+12: line: d OR j -> k updated k to 15359
+13: line: d AND j -> l updated l to 65
+14: line: NOT l -> m updated m to 65470
+15: line: k AND m -> n updated n to 15294
+16: line: b OR n -> o updated o to 49086
+17: line: b AND n -> p updated p to 10638
+18: line: NOT p -> q updated q to 54897
+19: line: o AND q -> r updated r to 38448
+20: line: 1 AND r -> s updated s to 0
+21: line: s LSHIFT 15 -> w updated w to 0
+22: line: t OR s -> u updated u to 0
+23: line: u LSHIFT 1 -> ao updated ao to 0
+24: line: v OR w -> x updated x to 22215
+25: line: x RSHIFT 2 -> y updated y to 5553
+26: line: x RSHIFT 5 -> aa updated aa to 694
+27: line: x RSHIFT 1 -> aq updated aq to 11107
+28: line: x RSHIFT 3 -> z updated z to 2776
+29: line: z AND aa -> ac updated ac to 656
+30: line: z OR aa -> ab updated ab to 2814
+31: line: NOT ac -> ad updated ad to 64879
+32: line: ab AND ad -> ae updated ae to 2158
+33: line: y AND ae -> ag updated ag to 32
+34: line: y OR ae -> af updated af to 7679
+35: line: NOT ag -> ah updated ah to 65503
+36: line: af AND ah -> ai updated ai to 7647
+37: line: x AND ai -> ak updated ak to 5319
+38: line: x OR ai -> aj updated aj to 24543
+39: line: NOT ak -> al updated al to 60216
+40: line: aj AND al -> am updated am to 19224
+41: line: 1 AND am -> an updated an to 0
+42: line: ao OR an -> ap updated ap to 0
+43: line: an LSHIFT 15 -> ar updated ar to 0
+44: line: aq OR ar -> as updated as to 11107
+45: line: as RSHIFT 3 -> au updated au to 1388
+46: line: as RSHIFT 2 -> at updated at to 2776
+47: line: as RSHIFT 5 -> av updated av to 347
+48: line: as RSHIFT 1 -> bl updated bl to 5553
+49: line: ap LSHIFT 1 -> bj updated bj to 0
+50: line: au AND av -> ax updated ax to 328
+51: line: au OR av -> aw updated aw to 1407
+52: line: NOT ax -> ay updated ay to 65207
+53: line: aw AND ay -> az updated az to 1079
+54: line: at OR az -> ba updated ba to 3839
+55: line: at AND az -> bb updated bb to 16
+56: line: NOT bb -> bc updated bc to 65519
+57: line: ba AND bc -> bd updated bd to 3823
+58: line: as AND bd -> bf updated bf to 2659
+59: line: NOT bf -> bg updated bg to 62876
+60: line: as OR bd -> be updated be to 12271
+61: line: be AND bg -> bh updated bh to 9612
+62: line: 1 AND bh -> bi updated bi to 0
+63: line: bi LSHIFT 15 -> bm updated bm to 0
+64: line: bj OR bi -> bk updated bk to 0
+65: line: bk LSHIFT 1 -> ce updated ce to 0
+66: line: bl OR bm -> bn updated bn to 5553
+67: line: bn RSHIFT 1 -> cg updated cg to 2776
+68: line: bn RSHIFT 5 -> bq updated bq to 173
+69: line: bn RSHIFT 2 -> bo updated bo to 1388
+70: line: bn RSHIFT 3 -> bp updated bp to 694
+71: line: bp AND bq -> bs updated bs to 164
+72: line: bp OR bq -> br updated br to 703
+73: line: NOT bs -> bt updated bt to 65371
+74: line: br AND bt -> bu updated bu to 539
+75: line: bo OR bu -> bv updated bv to 1919
+76: line: bo AND bu -> bw updated bw to 8
+77: line: NOT bw -> bx updated bx to 65527
+78: line: bv AND bx -> by updated by to 1911
+79: line: bn OR by -> bz updated bz to 6135
+80: line: bn AND by -> ca updated ca to 1329
+81: line: NOT ca -> cb updated cb to 64206
+82: line: bz AND cb -> cc updated cc to 4806
+83: line: 1 AND cc -> cd updated cd to 0
+84: line: ce OR cd -> cf updated cf to 0
+85: line: cd LSHIFT 15 -> ch updated ch to 0
+86: line: cg OR ch -> ci updated ci to 2776
+87: line: cf LSHIFT 1 -> cz updated cz to 0
+88: line: ci RSHIFT 2 -> cj updated cj to 694
+89: line: ci RSHIFT 5 -> cl updated cl to 86
+90: line: ci RSHIFT 3 -> ck updated ck to 347
+91: line: ci RSHIFT 1 -> db updated db to 1388
+92: line: ck OR cl -> cm updated cm to 351
+93: line: ck AND cl -> cn updated cn to 82
+94: line: NOT cn -> co updated co to 65453
+95: line: cm AND co -> cp updated cp to 269
+96: line: cj AND cp -> cr updated cr to 4
+97: line: cj OR cp -> cq updated cq to 959
+98: line: NOT cr -> cs updated cs to 65531
+99: line: cq AND cs -> ct updated ct to 955
+100: line: ci OR ct -> cu updated cu to 3067
+101: line: ci AND ct -> cv updated cv to 664
+102: line: NOT cv -> cw updated cw to 64871
+103: line: cu AND cw -> cx updated cx to 2403
+104: line: 1 AND cx -> cy updated cy to 1
+105: line: cz OR cy -> da updated da to 1
+106: line: cy LSHIFT 15 -> dc updated dc to 0
+107: line: da LSHIFT 1 -> du updated du to 0
+108: line: db OR dc -> dd updated dd to 1388
+109: line: dd RSHIFT 2 -> de updated de to 347
+110: line: dd RSHIFT 1 -> dw updated dw to 694
+111: line: dd RSHIFT 3 -> df updated df to 173
+112: line: dd RSHIFT 5 -> dg updated dg to 43
+113: line: df AND dg -> di updated di to 41
+114: line: NOT di -> dj updated dj to 65494
+115: line: df OR dg -> dh updated dh to 175
+116: line: dh AND dj -> dk updated dk to 134
+117: line: de AND dk -> dm updated dm to 2
+118: line: de OR dk -> dl updated dl to 479
+119: line: NOT dm -> dn updated dn to 65533
+120: line: dl AND dn -> do updated do to 477
+121: line: dd OR do -> dp updated dp to 1533
+122: line: dd AND do -> dq updated dq to 332
+123: line: NOT dq -> dr updated dr to 65203
+124: line: dp AND dr -> ds updated ds to 1201
+125: line: 1 AND ds -> dt updated dt to 1
+126: line: du OR dt -> dv updated dv to 1
+127: line: dv LSHIFT 1 -> ep updated ep to 0
+128: line: dt LSHIFT 15 -> dx updated dx to 0
+129: line: dw OR dx -> dy updated dy to 694
+130: line: dy RSHIFT 1 -> er updated er to 347
+131: line: dy RSHIFT 3 -> ea updated ea to 86
+132: line: dy RSHIFT 2 -> dz updated dz to 173
+133: line: dy RSHIFT 5 -> eb updated eb to 21
+134: line: ea OR eb -> ec updated ec to 87
+135: line: ea AND eb -> ed updated ed to 20
+136: line: NOT ed -> ee updated ee to 65515
+137: line: ec AND ee -> ef updated ef to 67
+138: line: dz OR ef -> eg updated eg to 239
+139: line: dz AND ef -> eh updated eh to 1
+140: line: NOT eh -> ei updated ei to 65534
+141: line: eg AND ei -> ej updated ej to 238
+142: line: dy AND ej -> el updated el to 166
+143: line: dy OR ej -> ek updated ek to 766
+144: line: NOT el -> em updated em to 65369
+145: line: ek AND em -> en updated en to 600
+146: line: 1 AND en -> eo updated eo to 0
+147: line: ep OR eo -> eq updated eq to 0
+148: line: eo LSHIFT 15 -> es updated es to 0
+149: line: er OR es -> et updated et to 347
+150: line: et RSHIFT 3 -> ev updated ev to 43
+151: line: et RSHIFT 5 -> ew updated ew to 10
+152: line: eq LSHIFT 1 -> fk updated fk to 0
+153: line: et RSHIFT 1 -> fm updated fm to 173
+154: line: ev AND ew -> ey updated ey to 10
+155: line: et RSHIFT 2 -> eu updated eu to 86
+156: line: ev OR ew -> ex updated ex to 43
+157: line: NOT ey -> ez updated ez to 65525
+158: line: ex AND ez -> fa updated fa to 33
+159: line: eu OR fa -> fb updated fb to 119
+160: line: eu AND fa -> fc updated fc to 0
+161: line: NOT fc -> fd updated fd to 65535
+162: line: fb AND fd -> fe updated fe to 119
+163: line: et OR fe -> ff updated ff to 383
+164: line: et AND fe -> fg updated fg to 83
+165: line: NOT fg -> fh updated fh to 65452
+166: line: ff AND fh -> fi updated fi to 300
+167: line: 1 AND fi -> fj updated fj to 0
+168: line: fk OR fj -> fl updated fl to 0
+169: line: fj LSHIFT 15 -> fn updated fn to 0
+170: line: fl LSHIFT 1 -> gf updated gf to 0
+171: line: fm OR fn -> fo updated fo to 173
+172: line: fo RSHIFT 1 -> gh updated gh to 86
+173: line: fo RSHIFT 2 -> fp updated fp to 43
+174: line: fo RSHIFT 3 -> fq updated fq to 21
+175: line: fo RSHIFT 5 -> fr updated fr to 5
+176: line: fq AND fr -> ft updated ft to 5
+177: line: fq OR fr -> fs updated fs to 21
+178: line: NOT ft -> fu updated fu to 65530
+179: line: fs AND fu -> fv updated fv to 16
+180: line: fp OR fv -> fw updated fw to 59
+181: line: fp AND fv -> fx updated fx to 0
+182: line: NOT fx -> fy updated fy to 65535
+183: line: fw AND fy -> fz updated fz to 59
+184: line: fo OR fz -> ga updated ga to 191
+185: line: fo AND fz -> gb updated gb to 41
+186: line: NOT gb -> gc updated gc to 65494
+187: line: ga AND gc -> gd updated gd to 150
+188: line: 1 AND gd -> ge updated ge to 0
+189: line: ge LSHIFT 15 -> gi updated gi to 0
+190: line: gh OR gi -> gj updated gj to 86
+191: line: gj RSHIFT 1 -> hc updated hc to 43
+192: line: gf OR ge -> gg updated gg to 0
+193: line: gg LSHIFT 1 -> ha updated ha to 0
+194: line: gj RSHIFT 5 -> gm updated gm to 2
+195: line: gj RSHIFT 3 -> gl updated gl to 10
+196: line: gj RSHIFT 2 -> gk updated gk to 21
+197: line: gl OR gm -> gn updated gn to 10
+198: line: gl AND gm -> go updated go to 2
+199: line: NOT go -> gp updated gp to 65533
+200: line: gn AND gp -> gq updated gq to 8
+201: line: gk OR gq -> gr updated gr to 29
+202: line: gk AND gq -> gs updated gs to 0
+203: line: NOT gs -> gt updated gt to 65535
+204: line: gr AND gt -> gu updated gu to 29
+205: line: gj AND gu -> gw updated gw to 20
+206: line: gj OR gu -> gv updated gv to 95
+207: line: NOT gw -> gx updated gx to 65515
+208: line: gv AND gx -> gy updated gy to 75
+209: line: 1 AND gy -> gz updated gz to 1
+210: line: gz LSHIFT 15 -> hd updated hd to 0
+211: line: ha OR gz -> hb updated hb to 1
+212: line: hc OR hd -> he updated he to 43
+213: line: hb LSHIFT 1 -> hv updated hv to 0
+214: line: he RSHIFT 1 -> hx updated hx to 21
+215: line: he RSHIFT 3 -> hg updated hg to 5
+216: line: he RSHIFT 5 -> hh updated hh to 1
+217: line: he RSHIFT 2 -> hf updated hf to 10
+218: line: hg OR hh -> hi updated hi to 5
+219: line: hg AND hh -> hj updated hj to 1
+220: line: NOT hj -> hk updated hk to 65534
+221: line: hi AND hk -> hl updated hl to 4
+222: line: hf OR hl -> hm updated hm to 14
+223: line: hf AND hl -> hn updated hn to 0
+224: line: NOT hn -> ho updated ho to 65535
+225: line: hm AND ho -> hp updated hp to 14
+226: line: he OR hp -> hq updated hq to 47
+227: line: he AND hp -> hr updated hr to 10
+228: line: NOT hr -> hs updated hs to 65525
+229: line: hq AND hs -> ht updated ht to 37
+230: line: 1 AND ht -> hu updated hu to 1
+231: line: hv OR hu -> hw updated hw to 1
+232: line: hu LSHIFT 15 -> hy updated hy to 0
+233: line: hw LSHIFT 1 -> iq updated iq to 0
+234: line: hx OR hy -> hz updated hz to 21
+235: line: hz RSHIFT 1 -> is updated is to 10
+236: line: hz RSHIFT 5 -> ic updated ic to 0
+237: line: hz RSHIFT 3 -> ib updated ib to 2
+238: line: hz RSHIFT 2 -> ia updated ia to 5
+239: line: ib AND ic -> ie updated ie to 0
+240: line: ib OR ic -> id updated id to 2
+241: line: NOT ie -> if updated if to 65535
+242: line: id AND if -> ig updated ig to 2
+243: line: ia OR ig -> ih updated ih to 7
+244: line: ia AND ig -> ii updated ii to 0
+245: line: NOT ii -> ij updated ij to 65535
+246: line: ih AND ij -> ik updated ik to 7
+247: line: hz OR ik -> il updated il to 23
+248: line: hz AND ik -> im updated im to 5
+249: line: NOT im -> in updated in to 65530
+250: line: il AND in -> io updated io to 18
+251: line: 1 AND io -> ip updated ip to 0
+252: line: ip LSHIFT 15 -> it updated it to 0
+253: line: iq OR ip -> ir updated ir to 0
+254: line: ir LSHIFT 1 -> jl updated jl to 0
+255: line: is OR it -> iu updated iu to 10
+256: line: iu RSHIFT 3 -> iw updated iw to 1
+257: line: iu RSHIFT 5 -> ix updated ix to 0
+258: line: iu RSHIFT 1 -> jn updated jn to 5
+259: line: iu RSHIFT 2 -> iv updated iv to 2
+260: line: iw AND ix -> iz updated iz to 0
+261: line: NOT iz -> ja updated ja to 65535
+262: line: iw OR ix -> iy updated iy to 1
+263: line: iy AND ja -> jb updated jb to 1
+264: line: iv AND jb -> jd updated jd to 0
+265: line: NOT jd -> je updated je to 65535
+266: line: iv OR jb -> jc updated jc to 3
+267: line: jc AND je -> jf updated jf to 3
+268: line: iu OR jf -> jg updated jg to 11
+269: line: iu AND jf -> jh updated jh to 2
+270: line: NOT jh -> ji updated ji to 65533
+271: line: jg AND ji -> jj updated jj to 9
+272: line: 1 AND jj -> jk updated jk to 1
+273: line: jk LSHIFT 15 -> jo updated jo to 0
+274: line: jn OR jo -> jp updated jp to 5
+275: line: jl OR jk -> jm updated jm to 1
+276: line: jp RSHIFT 5 -> js updated js to 0
+277: line: jp RSHIFT 3 -> jr updated jr to 0
+278: line: jr AND js -> ju updated ju to 0
+279: line: NOT ju -> jv updated jv to 65535
+280: line: jm LSHIFT 1 -> kg updated kg to 0
+281: line: jp RSHIFT 1 -> ki updated ki to 2
+282: line: jp RSHIFT 2 -> jq updated jq to 1
+283: line: jr OR js -> jt updated jt to 0
+284: line: jt AND jv -> jw updated jw to 0
+285: line: jq AND jw -> jy updated jy to 0
+286: line: jq OR jw -> jx updated jx to 1
+287: line: NOT jy -> jz updated jz to 65535
+288: line: jx AND jz -> ka updated ka to 1
+289: line: jp AND ka -> kc updated kc to 1
+290: line: jp OR ka -> kb updated kb to 5
+291: line: NOT kc -> kd updated kd to 65534
+292: line: kb AND kd -> ke updated ke to 4
+293: line: 1 AND ke -> kf updated kf to 0
+294: line: kg OR kf -> kh updated kh to 0
+295: line: kf LSHIFT 15 -> kj updated kj to 0
+296: line: ki OR kj -> kk updated kk to 2
+297: line: kk RSHIFT 2 -> kl updated kl to 0
+298: line: kk RSHIFT 1 -> ld updated ld to 1
+299: line: kk RSHIFT 5 -> kn updated kn to 0
+300: line: kh LSHIFT 1 -> lb updated lb to 0
+301: line: kk RSHIFT 3 -> km updated km to 0
+302: line: km AND kn -> kp updated kp to 0
+303: line: km OR kn -> ko updated ko to 0
+304: line: NOT kp -> kq updated kq to 65535
+305: line: ko AND kq -> kr updated kr to 0
+306: line: kl OR kr -> ks updated ks to 0
+307: line: kl AND kr -> kt updated kt to 0
+308: line: NOT kt -> ku updated ku to 65535
+309: line: ks AND ku -> kv updated kv to 0
+310: line: kk AND kv -> kx updated kx to 0
+311: line: NOT kx -> ky updated ky to 65535
+312: line: kk OR kv -> kw updated kw to 2
+313: line: kw AND ky -> kz updated kz to 2
+314: line: 1 AND kz -> la updated la to 0
+315: line: lb OR la -> lc updated lc to 0
+316: line: la LSHIFT 15 -> le updated le to 0
+317: line: ld OR le -> lf updated lf to 1
+318: line: lf RSHIFT 1 -> ly updated ly to 0
+319: line: lc LSHIFT 1 -> lw updated lw to 0
+320: line: lf RSHIFT 5 -> li updated li to 0
+321: line: lf RSHIFT 3 -> lh updated lh to 0
+322: line: lf RSHIFT 2 -> lg updated lg to 0
+323: line: lh AND li -> lk updated lk to 0
+324: line: NOT lk -> ll updated ll to 65535
+325: line: lh OR li -> lj updated lj to 0
+326: line: lj AND ll -> lm updated lm to 0
+327: line: lg OR lm -> ln updated ln to 0
+328: line: lg AND lm -> lo updated lo to 0
+329: line: NOT lo -> lp updated lp to 65535
+330: line: ln AND lp -> lq updated lq to 0
+331: line: lf AND lq -> ls updated ls to 0
+332: line: lf OR lq -> lr updated lr to 1
+333: line: NOT ls -> lt updated lt to 65535
+334: line: lr AND lt -> lu updated lu to 1
+335: line: 1 AND lu -> lv updated lv to 1
+336: line: lv LSHIFT 15 -> lz updated lz to 0
+337: line: ly OR lz -> ma updated ma to 0
+338: line: lw OR lv -> lx updated lx to 1
+339: line: lx -> a updated a to 1
+1: line: 44430 -> b updated b to 44430
+2: line: b RSHIFT 5 -> f updated f to 1388
+3: line: b RSHIFT 3 -> e updated e to 5553
+4: line: 0 -> c updated c to 0
+5: line: e OR f -> g updated g to 5629
+6: line: c LSHIFT 1 -> t updated t to 0
+7: line: b RSHIFT 2 -> d updated d to 11107
+8: line: b RSHIFT 1 -> v updated v to 22215
+9: line: e AND f -> h updated h to 1312
+10: line: NOT h -> i updated i to 64223
+11: line: g AND i -> j updated j to 4317
+12: line: d OR j -> k updated k to 15359
+13: line: d AND j -> l updated l to 65
+14: line: NOT l -> m updated m to 65470
+15: line: k AND m -> n updated n to 15294
+16: line: b OR n -> o updated o to 49086
+17: line: b AND n -> p updated p to 10638
+18: line: NOT p -> q updated q to 54897
+19: line: o AND q -> r updated r to 38448
+20: line: 1 AND r -> s updated s to 0
+21: line: s LSHIFT 15 -> w updated w to 0
+22: line: t OR s -> u updated u to 0
+23: line: u LSHIFT 1 -> ao updated ao to 0
+24: line: v OR w -> x updated x to 22215
+25: line: x RSHIFT 2 -> y updated y to 5553
+26: line: x RSHIFT 5 -> aa updated aa to 694
+27: line: x RSHIFT 1 -> aq updated aq to 11107
+28: line: x RSHIFT 3 -> z updated z to 2776
+29: line: z AND aa -> ac updated ac to 656
+30: line: z OR aa -> ab updated ab to 2814
+31: line: NOT ac -> ad updated ad to 64879
+32: line: ab AND ad -> ae updated ae to 2158
+33: line: y AND ae -> ag updated ag to 32
+34: line: y OR ae -> af updated af to 7679
+35: line: NOT ag -> ah updated ah to 65503
+36: line: af AND ah -> ai updated ai to 7647
+37: line: x AND ai -> ak updated ak to 5319
+38: line: x OR ai -> aj updated aj to 24543
+39: line: NOT ak -> al updated al to 60216
+40: line: aj AND al -> am updated am to 19224
+41: line: 1 AND am -> an updated an to 0
+42: line: ao OR an -> ap updated ap to 0
+43: line: an LSHIFT 15 -> ar updated ar to 0
+44: line: aq OR ar -> as updated as to 11107
+45: line: as RSHIFT 3 -> au updated au to 1388
+46: line: as RSHIFT 2 -> at updated at to 2776
+47: line: as RSHIFT 5 -> av updated av to 347
+48: line: as RSHIFT 1 -> bl updated bl to 5553
+49: line: ap LSHIFT 1 -> bj updated bj to 0
+50: line: au AND av -> ax updated ax to 328
+51: line: au OR av -> aw updated aw to 1407
+52: line: NOT ax -> ay updated ay to 65207
+53: line: aw AND ay -> az updated az to 1079
+54: line: at OR az -> ba updated ba to 3839
+55: line: at AND az -> bb updated bb to 16
+56: line: NOT bb -> bc updated bc to 65519
+57: line: ba AND bc -> bd updated bd to 3823
+58: line: as AND bd -> bf updated bf to 2659
+59: line: NOT bf -> bg updated bg to 62876
+60: line: as OR bd -> be updated be to 12271
+61: line: be AND bg -> bh updated bh to 9612
+62: line: 1 AND bh -> bi updated bi to 0
+63: line: bi LSHIFT 15 -> bm updated bm to 0
+64: line: bj OR bi -> bk updated bk to 0
+65: line: bk LSHIFT 1 -> ce updated ce to 0
+66: line: bl OR bm -> bn updated bn to 5553
+67: line: bn RSHIFT 1 -> cg updated cg to 2776
+68: line: bn RSHIFT 5 -> bq updated bq to 173
+69: line: bn RSHIFT 2 -> bo updated bo to 1388
+70: line: bn RSHIFT 3 -> bp updated bp to 694
+71: line: bp AND bq -> bs updated bs to 164
+72: line: bp OR bq -> br updated br to 703
+73: line: NOT bs -> bt updated bt to 65371
+74: line: br AND bt -> bu updated bu to 539
+75: line: bo OR bu -> bv updated bv to 1919
+76: line: bo AND bu -> bw updated bw to 8
+77: line: NOT bw -> bx updated bx to 65527
+78: line: bv AND bx -> by updated by to 1911
+79: line: bn OR by -> bz updated bz to 6135
+80: line: bn AND by -> ca updated ca to 1329
+81: line: NOT ca -> cb updated cb to 64206
+82: line: bz AND cb -> cc updated cc to 4806
+83: line: 1 AND cc -> cd updated cd to 0
+84: line: ce OR cd -> cf updated cf to 0
+85: line: cd LSHIFT 15 -> ch updated ch to 0
+86: line: cg OR ch -> ci updated ci to 2776
+87: line: cf LSHIFT 1 -> cz updated cz to 0
+88: line: ci RSHIFT 2 -> cj updated cj to 694
+89: line: ci RSHIFT 5 -> cl updated cl to 86
+90: line: ci RSHIFT 3 -> ck updated ck to 347
+91: line: ci RSHIFT 1 -> db updated db to 1388
+92: line: ck OR cl -> cm updated cm to 351
+93: line: ck AND cl -> cn updated cn to 82
+94: line: NOT cn -> co updated co to 65453
+95: line: cm AND co -> cp updated cp to 269
+96: line: cj AND cp -> cr updated cr to 4
+97: line: cj OR cp -> cq updated cq to 959
+98: line: NOT cr -> cs updated cs to 65531
+99: line: cq AND cs -> ct updated ct to 955
+100: line: ci OR ct -> cu updated cu to 3067
+101: line: ci AND ct -> cv updated cv to 664
+102: line: NOT cv -> cw updated cw to 64871
+103: line: cu AND cw -> cx updated cx to 2403
+104: line: 1 AND cx -> cy updated cy to 1
+105: line: cz OR cy -> da updated da to 1
+106: line: cy LSHIFT 15 -> dc updated dc to 0
+107: line: da LSHIFT 1 -> du updated du to 0
+108: line: db OR dc -> dd updated dd to 1388
+109: line: dd RSHIFT 2 -> de updated de to 347
+110: line: dd RSHIFT 1 -> dw updated dw to 694
+111: line: dd RSHIFT 3 -> df updated df to 173
+112: line: dd RSHIFT 5 -> dg updated dg to 43
+113: line: df AND dg -> di updated di to 41
+114: line: NOT di -> dj updated dj to 65494
+115: line: df OR dg -> dh updated dh to 175
+116: line: dh AND dj -> dk updated dk to 134
+117: line: de AND dk -> dm updated dm to 2
+118: line: de OR dk -> dl updated dl to 479
+119: line: NOT dm -> dn updated dn to 65533
+120: line: dl AND dn -> do updated do to 477
+121: line: dd OR do -> dp updated dp to 1533
+122: line: dd AND do -> dq updated dq to 332
+123: line: NOT dq -> dr updated dr to 65203
+124: line: dp AND dr -> ds updated ds to 1201
+125: line: 1 AND ds -> dt updated dt to 1
+126: line: du OR dt -> dv updated dv to 1
+127: line: dv LSHIFT 1 -> ep updated ep to 0
+128: line: dt LSHIFT 15 -> dx updated dx to 0
+129: line: dw OR dx -> dy updated dy to 694
+130: line: dy RSHIFT 1 -> er updated er to 347
+131: line: dy RSHIFT 3 -> ea updated ea to 86
+132: line: dy RSHIFT 2 -> dz updated dz to 173
+133: line: dy RSHIFT 5 -> eb updated eb to 21
+134: line: ea OR eb -> ec updated ec to 87
+135: line: ea AND eb -> ed updated ed to 20
+136: line: NOT ed -> ee updated ee to 65515
+137: line: ec AND ee -> ef updated ef to 67
+138: line: dz OR ef -> eg updated eg to 239
+139: line: dz AND ef -> eh updated eh to 1
+140: line: NOT eh -> ei updated ei to 65534
+141: line: eg AND ei -> ej updated ej to 238
+142: line: dy AND ej -> el updated el to 166
+143: line: dy OR ej -> ek updated ek to 766
+144: line: NOT el -> em updated em to 65369
+145: line: ek AND em -> en updated en to 600
+146: line: 1 AND en -> eo updated eo to 0
+147: line: ep OR eo -> eq updated eq to 0
+148: line: eo LSHIFT 15 -> es updated es to 0
+149: line: er OR es -> et updated et to 347
+150: line: et RSHIFT 3 -> ev updated ev to 43
+151: line: et RSHIFT 5 -> ew updated ew to 10
+152: line: eq LSHIFT 1 -> fk updated fk to 0
+153: line: et RSHIFT 1 -> fm updated fm to 173
+154: line: ev AND ew -> ey updated ey to 10
+155: line: et RSHIFT 2 -> eu updated eu to 86
+156: line: ev OR ew -> ex updated ex to 43
+157: line: NOT ey -> ez updated ez to 65525
+158: line: ex AND ez -> fa updated fa to 33
+159: line: eu OR fa -> fb updated fb to 119
+160: line: eu AND fa -> fc updated fc to 0
+161: line: NOT fc -> fd updated fd to 65535
+162: line: fb AND fd -> fe updated fe to 119
+163: line: et OR fe -> ff updated ff to 383
+164: line: et AND fe -> fg updated fg to 83
+165: line: NOT fg -> fh updated fh to 65452
+166: line: ff AND fh -> fi updated fi to 300
+167: line: 1 AND fi -> fj updated fj to 0
+168: line: fk OR fj -> fl updated fl to 0
+169: line: fj LSHIFT 15 -> fn updated fn to 0
+170: line: fl LSHIFT 1 -> gf updated gf to 0
+171: line: fm OR fn -> fo updated fo to 173
+172: line: fo RSHIFT 1 -> gh updated gh to 86
+173: line: fo RSHIFT 2 -> fp updated fp to 43
+174: line: fo RSHIFT 3 -> fq updated fq to 21
+175: line: fo RSHIFT 5 -> fr updated fr to 5
+176: line: fq AND fr -> ft updated ft to 5
+177: line: fq OR fr -> fs updated fs to 21
+178: line: NOT ft -> fu updated fu to 65530
+179: line: fs AND fu -> fv updated fv to 16
+180: line: fp OR fv -> fw updated fw to 59
+181: line: fp AND fv -> fx updated fx to 0
+182: line: NOT fx -> fy updated fy to 65535
+183: line: fw AND fy -> fz updated fz to 59
+184: line: fo OR fz -> ga updated ga to 191
+185: line: fo AND fz -> gb updated gb to 41
+186: line: NOT gb -> gc updated gc to 65494
+187: line: ga AND gc -> gd updated gd to 150
+188: line: 1 AND gd -> ge updated ge to 0
+189: line: ge LSHIFT 15 -> gi updated gi to 0
+190: line: gh OR gi -> gj updated gj to 86
+191: line: gj RSHIFT 1 -> hc updated hc to 43
+192: line: gf OR ge -> gg updated gg to 0
+193: line: gg LSHIFT 1 -> ha updated ha to 0
+194: line: gj RSHIFT 5 -> gm updated gm to 2
+195: line: gj RSHIFT 3 -> gl updated gl to 10
+196: line: gj RSHIFT 2 -> gk updated gk to 21
+197: line: gl OR gm -> gn updated gn to 10
+198: line: gl AND gm -> go updated go to 2
+199: line: NOT go -> gp updated gp to 65533
+200: line: gn AND gp -> gq updated gq to 8
+201: line: gk OR gq -> gr updated gr to 29
+202: line: gk AND gq -> gs updated gs to 0
+203: line: NOT gs -> gt updated gt to 65535
+204: line: gr AND gt -> gu updated gu to 29
+205: line: gj AND gu -> gw updated gw to 20
+206: line: gj OR gu -> gv updated gv to 95
+207: line: NOT gw -> gx updated gx to 65515
+208: line: gv AND gx -> gy updated gy to 75
+209: line: 1 AND gy -> gz updated gz to 1
+210: line: gz LSHIFT 15 -> hd updated hd to 0
+211: line: ha OR gz -> hb updated hb to 1
+212: line: hc OR hd -> he updated he to 43
+213: line: hb LSHIFT 1 -> hv updated hv to 0
+214: line: he RSHIFT 1 -> hx updated hx to 21
+215: line: he RSHIFT 3 -> hg updated hg to 5
+216: line: he RSHIFT 5 -> hh updated hh to 1
+217: line: he RSHIFT 2 -> hf updated hf to 10
+218: line: hg OR hh -> hi updated hi to 5
+219: line: hg AND hh -> hj updated hj to 1
+220: line: NOT hj -> hk updated hk to 65534
+221: line: hi AND hk -> hl updated hl to 4
+222: line: hf OR hl -> hm updated hm to 14
+223: line: hf AND hl -> hn updated hn to 0
+224: line: NOT hn -> ho updated ho to 65535
+225: line: hm AND ho -> hp updated hp to 14
+226: line: he OR hp -> hq updated hq to 47
+227: line: he AND hp -> hr updated hr to 10
+228: line: NOT hr -> hs updated hs to 65525
+229: line: hq AND hs -> ht updated ht to 37
+230: line: 1 AND ht -> hu updated hu to 1
+231: line: hv OR hu -> hw updated hw to 1
+232: line: hu LSHIFT 15 -> hy updated hy to 0
+233: line: hw LSHIFT 1 -> iq updated iq to 0
+234: line: hx OR hy -> hz updated hz to 21
+235: line: hz RSHIFT 1 -> is updated is to 10
+236: line: hz RSHIFT 5 -> ic updated ic to 0
+237: line: hz RSHIFT 3 -> ib updated ib to 2
+238: line: hz RSHIFT 2 -> ia updated ia to 5
+239: line: ib AND ic -> ie updated ie to 0
+240: line: ib OR ic -> id updated id to 2
+241: line: NOT ie -> if updated if to 65535
+242: line: id AND if -> ig updated ig to 2
+243: line: ia OR ig -> ih updated ih to 7
+244: line: ia AND ig -> ii updated ii to 0
+245: line: NOT ii -> ij updated ij to 65535
+246: line: ih AND ij -> ik updated ik to 7
+247: line: hz OR ik -> il updated il to 23
+248: line: hz AND ik -> im updated im to 5
+249: line: NOT im -> in updated in to 65530
+250: line: il AND in -> io updated io to 18
+251: line: 1 AND io -> ip updated ip to 0
+252: line: ip LSHIFT 15 -> it updated it to 0
+253: line: iq OR ip -> ir updated ir to 0
+254: line: ir LSHIFT 1 -> jl updated jl to 0
+255: line: is OR it -> iu updated iu to 10
+256: line: iu RSHIFT 3 -> iw updated iw to 1
+257: line: iu RSHIFT 5 -> ix updated ix to 0
+258: line: iu RSHIFT 1 -> jn updated jn to 5
+259: line: iu RSHIFT 2 -> iv updated iv to 2
+260: line: iw AND ix -> iz updated iz to 0
+261: line: NOT iz -> ja updated ja to 65535
+262: line: iw OR ix -> iy updated iy to 1
+263: line: iy AND ja -> jb updated jb to 1
+264: line: iv AND jb -> jd updated jd to 0
+265: line: NOT jd -> je updated je to 65535
+266: line: iv OR jb -> jc updated jc to 3
+267: line: jc AND je -> jf updated jf to 3
+268: line: iu OR jf -> jg updated jg to 11
+269: line: iu AND jf -> jh updated jh to 2
+270: line: NOT jh -> ji updated ji to 65533
+271: line: jg AND ji -> jj updated jj to 9
+272: line: 1 AND jj -> jk updated jk to 1
+273: line: jk LSHIFT 15 -> jo updated jo to 0
+274: line: jn OR jo -> jp updated jp to 5
+275: line: jl OR jk -> jm updated jm to 1
+276: line: jp RSHIFT 5 -> js updated js to 0
+277: line: jp RSHIFT 3 -> jr updated jr to 0
+278: line: jr AND js -> ju updated ju to 0
+279: line: NOT ju -> jv updated jv to 65535
+280: line: jm LSHIFT 1 -> kg updated kg to 0
+281: line: jp RSHIFT 1 -> ki updated ki to 2
+282: line: jp RSHIFT 2 -> jq updated jq to 1
+283: line: jr OR js -> jt updated jt to 0
+284: line: jt AND jv -> jw updated jw to 0
+285: line: jq AND jw -> jy updated jy to 0
+286: line: jq OR jw -> jx updated jx to 1
+287: line: NOT jy -> jz updated jz to 65535
+288: line: jx AND jz -> ka updated ka to 1
+289: line: jp AND ka -> kc updated kc to 1
+290: line: jp OR ka -> kb updated kb to 5
+291: line: NOT kc -> kd updated kd to 65534
+292: line: kb AND kd -> ke updated ke to 4
+293: line: 1 AND ke -> kf updated kf to 0
+294: line: kg OR kf -> kh updated kh to 0
+295: line: kf LSHIFT 15 -> kj updated kj to 0
+296: line: ki OR kj -> kk updated kk to 2
+297: line: kk RSHIFT 2 -> kl updated kl to 0
+298: line: kk RSHIFT 1 -> ld updated ld to 1
+299: line: kk RSHIFT 5 -> kn updated kn to 0
+300: line: kh LSHIFT 1 -> lb updated lb to 0
+301: line: kk RSHIFT 3 -> km updated km to 0
+302: line: km AND kn -> kp updated kp to 0
+303: line: km OR kn -> ko updated ko to 0
+304: line: NOT kp -> kq updated kq to 65535
+305: line: ko AND kq -> kr updated kr to 0
+306: line: kl OR kr -> ks updated ks to 0
+307: line: kl AND kr -> kt updated kt to 0
+308: line: NOT kt -> ku updated ku to 65535
+309: line: ks AND ku -> kv updated kv to 0
+310: line: kk AND kv -> kx updated kx to 0
+311: line: NOT kx -> ky updated ky to 65535
+312: line: kk OR kv -> kw updated kw to 2
+313: line: kw AND ky -> kz updated kz to 2
+314: line: 1 AND kz -> la updated la to 0
+315: line: lb OR la -> lc updated lc to 0
+316: line: la LSHIFT 15 -> le updated le to 0
+317: line: ld OR le -> lf updated lf to 1
+318: line: lf RSHIFT 1 -> ly updated ly to 0
+319: line: lc LSHIFT 1 -> lw updated lw to 0
+320: line: lf RSHIFT 5 -> li updated li to 0
+321: line: lf RSHIFT 3 -> lh updated lh to 0
+322: line: lf RSHIFT 2 -> lg updated lg to 0
+323: line: lh AND li -> lk updated lk to 0
+324: line: NOT lk -> ll updated ll to 65535
+325: line: lh OR li -> lj updated lj to 0
+326: line: lj AND ll -> lm updated lm to 0
+327: line: lg OR lm -> ln updated ln to 0
+328: line: lg AND lm -> lo updated lo to 0
+329: line: NOT lo -> lp updated lp to 65535
+330: line: ln AND lp -> lq updated lq to 0
+331: line: lf AND lq -> ls updated ls to 0
+332: line: lf OR lq -> lr updated lr to 1
+333: line: NOT ls -> lt updated lt to 65535
+334: line: lr AND lt -> lu updated lu to 1
+335: line: 1 AND lu -> lv updated lv to 1
+336: line: lv LSHIFT 15 -> lz updated lz to 0
+337: line: ly OR lz -> ma updated ma to 0
+338: line: lw OR lv -> lx updated lx to 1
+339: line: lx -> a updated a to 1
