@@ -78,7 +78,7 @@ if __name__ == '__main__':
     # test_string = ('\n').join(['00100', '11110', '10110', '10111', '10101', '01111', '00111', '11100', '10000', '11001', '00010', '01010'])
     # part1(test_string)
     # part2(test_string)
-    with open('../resources/2021/inputd3.txt', 'r') as f:
+    with open('../../resources/2021/inputd3.txt', 'r') as f:
         test_input = f.read()
         part1(test_input)
         part2(test_input)

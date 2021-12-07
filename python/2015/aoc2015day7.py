@@ -1,7 +1,8 @@
 from typing import Dict, List, Optional
 
 
-def part1(input_str: str) -> None:
+def day7(input_str: str,
+          part:int) -> None:
     wires: Dict[str, int] = {}
     deferred: List[str] = []
     messages: List[str] = []
@@ -25,12 +26,12 @@ def part1(input_str: str) -> None:
             output_file.write(f'{i}: {msg}\n')
             i += 1
         output_file.close()
-    print_wires(wires)
+    print(f'Day 7 Part {part}: Wire[a] = {wires.get("a")}')
 
 
 def print_wires(wires: Dict[str, int]) -> None:
-    for k, v in wires.items():
-        print(f'Wire[{k}]: {v}')
+    for key, value in sorted(wires.items(), key=lambda x: x[0], reverse=True):
+        print("Wire[{}]: {}".format(key, value))
 
 
 def process_line(line: str,
@@ -59,7 +60,7 @@ def process_line(line: str,
         if amount1 is None or amount2 is None:
             return False, ''
         else:
-            amount = amount1 >> amount2
+            amount = amount1 << amount2
     elif source.find('RSHIFT') > -1:
         amount1 = get_amount(source.split('RSHIFT')[0].strip(), wires)
         amount2 = int(source.split('RSHIFT')[1].strip())
@@ -87,7 +88,6 @@ def get_amount(var: str,
         return int(var)
     except ValueError:
         pass
-
     return wires.get(var)
 
 
@@ -117,10 +117,11 @@ def process_deferred(deferred: List[str],
 
 
 if __name__ == '__main__':
-    # test_string_1 = '\n'.join(['123 -> x', '456 -> y', 'x AND y -> d', 'x OR y -> e', 'x LSHIFT 2 -> f',
-    # 'y RSHIFT 2 -> g', 'NOT x -> h', 'NOT y -> i'])
-    # part1(test_string_1)
+
     with open('../../resources/2015/inputd7.txt', 'r') as f:
         test_input = f.read()
-        part1(test_input)
-        # part2(test_input)
+        day7(test_input, 1)
+
+    with open('../../resources/2015/inputd7b.txt', 'r') as f:
+        test_input = f.read()
+        day7(test_input, 2)
