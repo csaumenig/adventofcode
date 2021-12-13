@@ -1,20 +1,15 @@
-display = ['', '', '', '', '', '', '', '', '', '']
-display[1] = 'CF'
-
-display[7] = 'ACF'
-
-display[4] = 'BCDF'
-
-display[2] = 'ACDEG'
-display[3] = 'ACDFG'
-display[5] = 'ABDFG'
-
-display[0] = 'ABCEFG'
-display[9] = 'ABCDFG'
-display[6] = 'ABDEFG'
-
-display[8] = 'ABCDEFG'
-
+display = {
+    0: 'ABCEFG',
+    1: 'CF',
+    2: 'ACDEG',
+    3: 'ACDFG',
+    4: 'BCDF',
+    5: 'ABDFG',
+    6: 'ABDEFG',
+    7: 'ACF',
+    8: 'ABCDEFG',
+    9: 'ABCDFG'
+}
 
 solve_it = {
     'a': 'C',
@@ -25,22 +20,6 @@ solve_it = {
     'f': 'D',
     'g': 'E'
 }
-
-# ab dab eafb cdfbe gcdfa fbcad cefabd cdfgeb cagedb acedgfb |
-# cdfeb fcadb cdfeb cdbaf
-# 5 3 5 3
-# ab -> CF => (ab ~ CF)
-# abd -> ACF => (d = A)
-# abef -> BCDF => (ef ~ BD)
-# cdf -> ADG => (cf ~ DG)
-# bcdef -> (ABDG)b
-# acdfg -> (ADG)ag ->
-# abcdf -> ACDFG
-# cf -> AG
-# abcdef ->
-# bcdefg ->
-# abcdeg ->
-# abcdefg -> ABCDEFG
 
 def part1(input_str: str) -> None:
     count = 0
@@ -56,8 +35,8 @@ def part2(input_str: str) -> None:
     line_num = 1
     for line in input_str.split('\n'):
         io_parts = line.split('|')
-        input_list = io_parts[0].strip()
-        output_list = io_parts[1].strip()
+        input_list = io_parts[0].strip().split(' ')
+        output_list = io_parts[1].strip().split(' ')
 
         key_dict = decode_input(input_list)
         output_num = decode_output(output_list, key_dict)
@@ -67,16 +46,139 @@ def part2(input_str: str) -> None:
     print(f'Day 8 Part 2: Total = {total}')
 
 
+def decode_input(input_list: list[str]) -> dict[str, str]:
+    # display = {
+    #     1: 'CF',
+    #     7: 'ACF',
+    #     4: 'BCDF',
 
+    #     5: 'ABDFG', => ADG(BF)
+    #     2: 'ACDEG', => ADG(CE)
+    #     3: 'ACDFG', => ADG(CF)
+
+    #     9: 'ABCDFG'
+    #     0: 'ABCEFG',
+    #     6: 'ABDEFG',
+
+    #     8: 'ABCDEFG',
+    # }
+    # 'ab', 'abd', 'abef', 'bcdef', 'acdfg', 'abcdf', 'abcdef', 'bcdefg', 'abcdeg', 'abcdefg'
+    # 1.
+    # ab -> CF => (ab ~ CF)
+    # abd -> ACF => d = 'A'
+
+    # 2.
+    # abef -> BCDF => (ef ~ BD)
+    # cdf -> ADG => (cf ~ DG)
+    # f = 'D', e = 'B', c = 'G'
+
+    # 3.
+    # bcdef -> (ABDG)b => b = 'F', a = 'C'
+    # acdfg -> (ADG)ag => g = 'E'
+
+    sorted_list = [''.join(sorted(list_num)) for list_num in sorted(input_list, key=len)]
+    tmp_dict = {}
+    solved_dict = {}
+    for x in sorted_list:
+        if len(x) in (2, 3, 4, 7):
+            tmp_dict.update({len(x): x})
+        elif len(x) == 5:
+            my_list = tmp_dict.get(5, [])
+            my_list.append(x)
+            tmp_dict.update({5: sorted(my_list)})
+
+    # 1.
+    my_A = ''.join(set(tmp_dict.get(3))-set(tmp_dict.get(2)))
+    solved_dict.update({'A': my_A})
+
+    # 2.
+    four_and_two = set(tmp_dict.get(4)) - set(tmp_dict.get(2))
+    five_and_three = set.intersection(set(tmp_dict.get(5)[0]), set(tmp_dict.get(5)[1]), set(tmp_dict.get(5)[2]))
+    five_and_two = copy_set(five_and_three)
+    five_and_two.discard(solved_dict.get('A'))
+    tmp_D = four_and_two.intersection(five_and_two)
+    my_D = ''.join(tmp_D)
+
+    tmp_B = copy_set(four_and_two)
+    tmp_B.discard(my_D)
+    my_B = ''.join(tmp_B)
+
+    tmp_G = copy_set(five_and_two)
+    tmp_G.discard(my_D)
+    my_G = ''.join(tmp_G)
+
+    solved_dict.update({'D': my_D})
+    solved_dict.update({'B': my_B})
+    solved_dict.update({'G': my_G})
+
+    # 3.
+    for tmp_5 in tmp_dict.get(5):
+        tmp_5_set = set(tmp_5)
+        for v in solved_dict.values():
+            tmp_5_set.discard(v)
+        if len(tmp_5_set) == 1:
+            my_F = ''.join(tmp_5_set)
+            solved_dict.update({'F': my_F})
+            tmp_2 = set(tmp_dict.get(2))
+            tmp_2.discard(my_F)
+            my_C = ''.join(tmp_2)
+            solved_dict.update({'C': my_C})
+            break
+
+    # 4.
+    tmp_7_set = set(tmp_dict.get(7))
+    for v in solved_dict.values():
+        tmp_7_set.discard(v)
+    my_E = ''.join(tmp_7_set)
+    solved_dict.update({'E': my_E})
+    print(sorted_list)
+    print(solved_dict)
+    return solved_dict
+
+
+def copy_set(my_set: set) -> set:
+    return set([x for x in my_set])
+
+
+def find_intersections(master_list: list[list[str]]) -> set[str]:
+    result = []
+    for idx1 in range(0, len(master_list)):
+        s1 = set(master_list[idx1])
+        for idx2 in range(0, len(master_list)):
+            if idx2 == idx1:
+                continue
+            else:
+                s2 = set(master_list[idx2])
+                s3 = s1.intersection(s2)
+                result.extend(s3)
+    return set(result)
+
+
+def decode_output(output_list: list[str],
+                  key_dict: dict[str, str]) -> int:
+    my_key_dict = dict((v,k) for k,v in key_dict.items())
+    str_value = ''
+    for output_num in output_list:
+        decode = ''
+        for char in sorted(output_num):
+            decode += my_key_dict.get(char).upper()
+        decode = ''.join(sorted(decode))
+        for k, v in display.items():
+            if v == decode:
+                str_value += str(k)
+                break
+    return int(str_value)
 
 
 if __name__ == '__main__':
+    #test_string = 'ab dab eafb cdfbe gcdfa fbcad cefabd cdfgeb cagedb acedgfb | cdfeb fcadb cdfeb cdbaf'
+    # part2(test_string)
     with open('../../resources/2021/inputd8a.txt', 'r') as f:
-        test_string = f.read()
-        part1(test_string)
-        part2(test_string)
+         test_string = f.read()
+         part1(test_string)
+         part2(test_string)
 
     with open('../../resources/2021/inputd8.txt', 'r') as f:
-        test_input = f.read()
-        part1(test_input)
-        part2(test_input)
+         test_input = f.read()
+         part1(test_input)
+         part2(test_input)
