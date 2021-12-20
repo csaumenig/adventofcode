@@ -16,11 +16,11 @@ def part2(input_str: str) -> None:
 
 if __name__ == '__main__':
     with open(f'../../resources/{YEAR}/inputd{DAY}a.txt', 'r') as f:
-         test_string = f.read()
-         part1(test_string)
-         part2(test_string)
+        test_string = f.read()
+        part1(test_string)
+        part2(test_string)
 
     with open(f'../../resources/{YEAR}/inputd{DAY}a.txt', 'r') as f:
-         test_input = f.read()
-         part1(test_input)
-         part2(test_input)
+        test_string = f.read()
+        part1(test_string)
+        part2(test_string)
