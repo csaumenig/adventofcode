@@ -21,11 +21,12 @@ solve_it = {
     'g': 'E'
 }
 
+
 def part1(input_str: str) -> None:
     count = 0
     for line in input_str.split('\n'):
         for output_num in line.split('|')[1].strip().split(' '):
-            if len(output_num) in (2,3,4,7):
+            if len(output_num) in (2, 3, 4, 7):
                 count += 1
     print(f'Day 8 Part 1: Count: {count}')
 
@@ -88,28 +89,28 @@ def decode_input(input_list: list[str]) -> dict[str, str]:
             tmp_dict.update({5: sorted(my_list)})
 
     # 1.
-    my_A = ''.join(set(tmp_dict.get(3))-set(tmp_dict.get(2)))
-    solved_dict.update({'A': my_A})
+    my_a = ''.join(set(tmp_dict.get(3))-set(tmp_dict.get(2)))
+    solved_dict.update({'A': my_a})
 
     # 2.
     four_and_two = set(tmp_dict.get(4)) - set(tmp_dict.get(2))
     five_and_three = set.intersection(set(tmp_dict.get(5)[0]), set(tmp_dict.get(5)[1]), set(tmp_dict.get(5)[2]))
     five_and_two = copy_set(five_and_three)
     five_and_two.discard(solved_dict.get('A'))
-    tmp_D = four_and_two.intersection(five_and_two)
-    my_D = ''.join(tmp_D)
+    tmp_d = four_and_two.intersection(five_and_two)
+    my_d = ''.join(tmp_d)
 
-    tmp_B = copy_set(four_and_two)
-    tmp_B.discard(my_D)
-    my_B = ''.join(tmp_B)
+    tmp_b = copy_set(four_and_two)
+    tmp_b.discard(my_d)
+    my_b = ''.join(tmp_b)
 
-    tmp_G = copy_set(five_and_two)
-    tmp_G.discard(my_D)
-    my_G = ''.join(tmp_G)
+    tmp_g = copy_set(five_and_two)
+    tmp_g.discard(my_d)
+    my_g = ''.join(tmp_g)
 
-    solved_dict.update({'D': my_D})
-    solved_dict.update({'B': my_B})
-    solved_dict.update({'G': my_G})
+    solved_dict.update({'D': my_d})
+    solved_dict.update({'B': my_b})
+    solved_dict.update({'G': my_g})
 
     # 3.
     for tmp_5 in tmp_dict.get(5):
@@ -117,20 +118,20 @@ def decode_input(input_list: list[str]) -> dict[str, str]:
         for v in solved_dict.values():
             tmp_5_set.discard(v)
         if len(tmp_5_set) == 1:
-            my_F = ''.join(tmp_5_set)
-            solved_dict.update({'F': my_F})
+            my_f = ''.join(tmp_5_set)
+            solved_dict.update({'F': my_f})
             tmp_2 = set(tmp_dict.get(2))
-            tmp_2.discard(my_F)
-            my_C = ''.join(tmp_2)
-            solved_dict.update({'C': my_C})
+            tmp_2.discard(my_f)
+            my_c = ''.join(tmp_2)
+            solved_dict.update({'C': my_c})
             break
 
     # 4.
     tmp_7_set = set(tmp_dict.get(7))
     for v in solved_dict.values():
         tmp_7_set.discard(v)
-    my_E = ''.join(tmp_7_set)
-    solved_dict.update({'E': my_E})
+    my_e = ''.join(tmp_7_set)
+    solved_dict.update({'E': my_e})
     print(sorted_list)
     print(solved_dict)
     return solved_dict
@@ -156,7 +157,7 @@ def find_intersections(master_list: list[list[str]]) -> set[str]:
 
 def decode_output(output_list: list[str],
                   key_dict: dict[str, str]) -> int:
-    my_key_dict = dict((v,k) for k,v in key_dict.items())
+    my_key_dict = dict((v, k) for k, v in key_dict.items())
     str_value = ''
     for output_num in output_list:
         decode = ''
@@ -171,14 +172,12 @@ def decode_output(output_list: list[str],
 
 
 if __name__ == '__main__':
-    #test_string = 'ab dab eafb cdfbe gcdfa fbcad cefabd cdfgeb cagedb acedgfb | cdfeb fcadb cdfeb cdbaf'
-    # part2(test_string)
     with open('../../resources/2021/inputd8a.txt', 'r') as f:
-         test_string = f.read()
-         part1(test_string)
-         part2(test_string)
+        test_string = f.read()
+        part1(test_string)
+        part2(test_string)
 
     with open('../../resources/2021/inputd8.txt', 'r') as f:
-         test_input = f.read()
-         part1(test_input)
-         part2(test_input)
+        test_input = f.read()
+        part1(test_input)
+        part2(test_input)

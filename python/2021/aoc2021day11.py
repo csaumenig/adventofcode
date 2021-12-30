@@ -120,8 +120,3 @@ if __name__ == '__main__':
     file_name = f'../../resources/{YEAR}/inputd{DAY}.txt'
     part1(file_name, 100)
     part2(file_name)
-
-    # with open(f'../../resources/{YEAR}/inputd{DAY}a.txt', 'r') as f:
-    #     test_string = f.read()
-    #     #part1(test_string)
-    #     #part2(test_string)

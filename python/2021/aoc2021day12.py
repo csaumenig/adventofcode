@@ -95,7 +95,7 @@ def get_paths_2(caves: dict[str, Cave],
     paths: list[list[Cave]] = []
     for node in start_cave.neighbors:
         node: Cave
-        if node.name in ('start'):
+        if node.name == 'start':
             continue
         if node not in this_path:
             new_paths = get_paths_2(caves, node.name, end, this_path)
