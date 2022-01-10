@@ -44,8 +44,9 @@ class Packet:
                        sub_packet: Packet) -> None:
         self._sub_packets.append(sub_packet)
 
+    @property
     def version_total(self) -> int:
-        return self._packet_version + sum([p.packet_version for p in self._sub_packets])
+        return self._packet_version + sum([p.version_total for p in self._sub_packets])
 
     @property
     def value(self) -> int:
@@ -71,24 +72,13 @@ class Packet:
         return self._value
 
 
-def part1(file_name_str: str) -> None:
-    print('***********************')
-    print(f'Source File = {file_name_str}')
-    hex_str = read_file(file_name_str)
-    bits = hex_to_bin(hex_str)
-    total_version, remainder, rem_len = read_packet_and_total_version(bits, 0)
-    print(f'Day {DAY} Part 1: Total of versions = {total_version}')
-    print('***********************')
-    print('')
-
-
-def part2(file_name_str: str) -> None:
+def part1n2(file_name_str: str) -> None:
     print('***********************')
     print(f'Source File = {file_name_str}')
     hex_str = read_file(file_name_str)
     bits = hex_to_bin(hex_str)
     packet, read_length = read_packet(bits)
-    print(f'Day {DAY} Part 2: Total of versions = {packet.version_total()}')
+    print(f'Day {DAY} Part 1: Total of versions = {packet.version_total}')
     print(f'Day {DAY} Part 2: Total of packets = {packet.value}')
     print('***********************')
     print('')
@@ -259,20 +249,20 @@ def bin_to_dec(bin_string) -> int:
 
 if __name__ == '__main__':
     file_name = f'../../resources/{YEAR}/inputd{DAY}a.txt'
-    part1(file_name)
-    part2(file_name)
+    part1n2(file_name)
+
     file_name = f'../../resources/{YEAR}/inputd{DAY}b.txt'
-    part1(file_name)
-    part2(file_name)
+    part1n2(file_name)
+
     file_name = f'../../resources/{YEAR}/inputd{DAY}c.txt'
-    part1(file_name)
-    part2(file_name)
+    part1n2(file_name)
+
     file_name = f'../../resources/{YEAR}/inputd{DAY}d.txt'
-    part1(file_name)
-    part2(file_name)
+    part1n2(file_name)
+
     file_name = f'../../resources/{YEAR}/inputd{DAY}e.txt'
-    part1(file_name)
-    part2(file_name)
+    part1n2(file_name)
+
     file_name = f'../../resources/{YEAR}/inputd{DAY}.txt'
-    part1(file_name)
-    part2(file_name)
+    part1n2(file_name)
+
