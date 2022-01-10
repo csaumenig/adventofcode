@@ -40,13 +40,38 @@ def part1(file_name_str: str) -> None:
                 traj_y -= 1
                 cur_trajectory = (traj_x, traj_y)
                 i += 1
-
     print(f'Day {DAY} Part 1: Highest Y Pos: {highest_y_position}, Successful Trajectories: {winning_trajectories}')
 
 
 def part2(file_name_str: str) -> None:
-    grid = read_file(file_name_str)
-    print(f'Day {DAY} Part 1: ANSWER')
+    target_area = read_file(file_name_str)
+    winning_trajectories: list[tuple[int, int]] = []
+    max_x = max(target_area.get('x'))
+    min_y = min(target_area.get('y'))
+    max_y = abs(min_y)
+    for x in range(0, max_x + 1):
+        for y in range(min_y, max_y + 1):
+            cur_pos = START_POS
+            trajectory = (x, y)
+            cur_trajectory = trajectory
+            i = 1
+            while is_past_target_area(cur_pos, target_area) is False:
+                cur_pos = (cur_pos[0] + cur_trajectory[0], cur_pos[1] + cur_trajectory[1])
+                if is_in_target_area(cur_pos, target_area):
+                    print(f'Start: {START_POS}, Start Trajectory: {trajectory}, '
+                          f'Target Area: {target_area}, Step: {i}, '
+                          f'Current Position: {cur_pos}, Current Trajectory: {cur_trajectory}')
+                    winning_trajectories.append(trajectory)
+                    break
+                traj_x = cur_trajectory[0]
+                traj_y = cur_trajectory[1]
+
+                if traj_x > 0:
+                    traj_x -= 1
+                traj_y -= 1
+                cur_trajectory = (traj_x, traj_y)
+                i += 1
+    print(f'Day {DAY} Part 2: Number of Successful Trajectories: {len(winning_trajectories)}')
 
 
 def is_in_target_area(point: tuple[int, int], target_area: dict[str, tuple[int, int]]) -> bool:
@@ -75,10 +100,10 @@ def read_file(file_name_str: str) -> dict[str, tuple[int, int]]:
 
 
 if __name__ == '__main__':
-    # file_name = f'../../resources/{YEAR}/inputd{DAY}a.txt'
-    # part1(file_name)
-    # part2(file_name)
+    file_name = f'../../resources/{YEAR}/inputd{DAY}a.txt'
+    part1(file_name)
+    part2(file_name)
 
     file_name = f'../../resources/{YEAR}/inputd{DAY}.txt'
     part1(file_name)
-    # part2(file_name)
+    part2(file_name)
