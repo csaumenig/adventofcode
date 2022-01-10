@@ -107,3 +107,4 @@ if __name__ == '__main__':
     file_name = f'../../resources/{YEAR}/inputd{DAY}.txt'
     part1(file_name)
     part2(file_name)
+
