@@ -248,21 +248,23 @@ def bin_to_dec(bin_string) -> int:
 
 
 if __name__ == '__main__':
-    file_name = f'../../resources/{YEAR}/inputd{DAY}a.txt'
-    part1n2(file_name)
+    # file_name = f'../../resources/{YEAR}/inputd{DAY}a.txt'
+    # part1n2(file_name)
+    #
+    # file_name = f'../../resources/{YEAR}/inputd{DAY}b.txt'
+    # part1n2(file_name)
+    #
+    # file_name = f'../../resources/{YEAR}/inputd{DAY}c.txt'
+    # part1n2(file_name)
+    #
+    # file_name = f'../../resources/{YEAR}/inputd{DAY}d.txt'
+    # part1n2(file_name)
+    #
+    # file_name = f'../../resources/{YEAR}/inputd{DAY}e.txt'
+    # part1n2(file_name)
+    #
+    # file_name = f'../../resources/{YEAR}/inputd{DAY}.txt'
+    # part1n2(file_name)
 
-    file_name = f'../../resources/{YEAR}/inputd{DAY}b.txt'
-    part1n2(file_name)
-
-    file_name = f'../../resources/{YEAR}/inputd{DAY}c.txt'
-    part1n2(file_name)
-
-    file_name = f'../../resources/{YEAR}/inputd{DAY}d.txt'
-    part1n2(file_name)
-
-    file_name = f'../../resources/{YEAR}/inputd{DAY}e.txt'
-    part1n2(file_name)
-
-    file_name = f'../../resources/{YEAR}/inputd{DAY}.txt'
-    part1n2(file_name)
+    print(bin_to_dec('111111111'))
 
