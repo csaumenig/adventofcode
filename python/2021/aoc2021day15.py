@@ -33,7 +33,8 @@ class Graph:
 
     def expand(self,
                num_times: int) -> None:
-        for r in range(0, self.rows):
+        
+
 
 
 
