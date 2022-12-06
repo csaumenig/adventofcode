@@ -30,23 +30,7 @@ def part1(file_name: str,
             print(f'AOC {YEAR} Day {DAY} Part 1: Run {num_iters} times: {line} -> {output} [{len(output)}]')
 
 
-def part2(file_name: str):
-    nodes: list[str]
-    stops: set[str] = set()
-    distances, nodes, paths = load_distances(file_name, stops)
-
-    long_path = None
-    long_dist = None
-    for path in paths:
-        distance = calc_distance(list(path), distances)
-        if long_dist is None or distance > long_dist:
-            long_dist = distance
-            long_path = path
-    print(f'AOC {YEAR} Day {DAY} Part 2: {long_path} - {long_dist}')
-
-
 if __name__ == '__main__':
-    part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt', 40)
+    part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt', 1)
     part1(f'../../resources/{YEAR}/inputd{DAY}.txt', 40)
-    # part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt', 50)
     part1(f'../../resources/{YEAR}/inputd{DAY}.txt', 50)
