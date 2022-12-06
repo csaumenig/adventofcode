@@ -3,7 +3,8 @@ DAY = 9
 
 
 def load_distances(file_name: str,
-                   stops: set[str]) -> dict[str, dict[str: int]]:
+                   stops: set[str]) -> tuple[dict[str, dict[str: int]], list[str], list[str]]:
+    from itertools import permutations
     import re
     distances = {}
     with open(file_name, 'r', encoding='utf-8') as text_file:
@@ -14,7 +15,10 @@ def load_distances(file_name: str,
             stops.add(match[0])
             stops.add(match[1])
             update_distances(distances, match[0], match[1], int(match[2]))
-    return distances
+
+    nodes: list[str] = sorted(stops)
+    paths: list[str] = list(permutations(nodes))
+    return distances, nodes, paths
 
 
 def update_distances(distances: dict[str, dict[str: int]],
@@ -36,130 +40,50 @@ def print_distances(distances: dict[str, dict[str: int]]) -> None:
             print(f'{start} -> {end} = {distance}')
 
 
+def calc_distance(path: list[str],
+                  distances: dict[str, dict[str: int]]) -> int:
+    total = 0
+    last = None
+    for x in path:
+        if last is not None:
+            targets: dict[str: int] = distances.get(last)
+            total += targets.get(x)
+        last = x
+    return total
+
+
 def part1(file_name: str):
-    import json
     nodes: list[str]
     stops: set[str] = set()
-    distances = load_distances(file_name, stops)
-    nodes = sorted(stops)
-    print(nodes)
-    # print_distances(distances)
-    # print_combination(nodes, 2)
-    print_paths(nodes)
+    distances, nodes, paths = load_distances(file_name, stops)
+
+    short_path = None
+    short_dist = None
+    for path in paths:
+        distance = calc_distance(list(path), distances)
+        if short_dist is None or distance < short_dist:
+            short_dist = distance
+            short_path = path
+    print(f'AOC {YEAR} Day {DAY} Part 1: {short_path} - {short_dist}')
 
 
 def part2(file_name: str):
-    raw_len = 0
-    enc_len = 0
-    with open(file_name, 'r', encoding='utf-8') as text_file:
-        lines = text_file.read()
-        for line in lines.split('\n'):
-            raw_len += len(line)
-            enc_line = '"' + line.replace('\\', '\\\\').replace('"', '\\"') + '"'
-            enc_len += len(enc_line)
-            # print(f'Raw: {line}\tEncoded: {enc_line}')
-    print(f'Raw Length: {raw_len}')
-    print(f'Encoded Length: {enc_len}')
-    print(f'AOC {YEAR} Day {DAY} Part 2: {enc_len - raw_len}')
+    nodes: list[str]
+    stops: set[str] = set()
+    distances, nodes, paths = load_distances(file_name, stops)
 
-
-def print_paths(nodes: list[str]):
-
-
-
-
-
-    path = []
-    for node in nodes:
-        if node in path:
-            continue
-        else:
-            path.append(node)
-            for node1 in nodes:
-                if node1 in path:
-                    continue
-                else:
-                    path.append(node1)
-                    for node2 in nodes:
-                        if node2 in path:
-                            continue
-                        else:
-                            path.append(node2)
-                            for node3 in nodes:
-                                if node3 in path:
-                                    continue
-                                else:
-                                    path.append(node3)
-                                    for node4 in nodes:
-                                        if node4 in path:
-                                            continue
-                                        else:
-                                            path.append(node4)
-                                            for node5 in nodes:
-                                                if node5 in path:
-                                                    continue
-                                                else:
-                                                    path.append(node5)
-                                                    for node6 in nodes:
-                                                        if node6 in path:
-                                                            continue
-                                                        else:
-                                                            path.append(node6)
-                                                            for node7 in nodes:
-                                                                if node7 in path:
-                                                                    continue
-                                                                else:
-                                                                    path.append(node7)
-                                                                    print('->'.join(path))
-
-
-def recur(current: list[str],
-          paths: list[list[str]],
-          cities: list[str]):
-    if len(current) == len(cities):
-        paths.append(current)
-        return
-
-    for dest in cities:
-        if dest in current:
-            continue
-        else:
-            current.append(dest)
-            recur(current, paths, cities)
-
-
-def print_combination(cities: list[str],
-                      combination_size: int):
-    data = [0] * combination_size
-    combination_util(cities, data, 0, len(cities) - 1, 0, combination_size)
-
-
-def combination_util(cities: list[str],
-                     data,
-                     start: int,
-                     end: int,
-                     index: int,
-                     combination_size: int):
-    if index == combination_size:
-        for j in range(combination_size):
-            print(data[j], end=" ")
-        print()
-        return
-
-    i = start
-    while i <= end and end - i + 1 >= combination_size - index:
-        data[index] = cities[i]
-        combination_util(cities,
-                         data,
-                         i + 1,
-                         end,
-                         index + 1,
-                         combination_size)
-        i += 1
+    long_path = None
+    long_dist = None
+    for path in paths:
+        distance = calc_distance(list(path), distances)
+        if long_dist is None or distance > long_dist:
+            long_dist = distance
+            long_path = path
+    print(f'AOC {YEAR} Day {DAY} Part 2: {long_path} - {long_dist}')
 
 
 if __name__ == '__main__':
     part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
     part1(f'../../resources/{YEAR}/inputd{DAY}.txt')
-    # part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
-    # part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
+    part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
+    part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
