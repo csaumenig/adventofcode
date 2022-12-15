@@ -76,9 +76,9 @@ vertices = [[0, 1, 1, 1],
 
 # 2D array to represent the edge structure
 edges = [[0, 1, 2, 5],
-        [1, 0, 2, 0],
-        [2, 2, 0, 4],
-        [5, 0, 4, 0]]
+         [1, 0, 2, 0],
+         [2, 2, 0, 4],
+         [5, 0, 4, 0]]
 
 # calculate Number of vertices
 num_of_vertices = len(vertices[0])
