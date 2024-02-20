@@ -115,6 +115,7 @@ def part2(file_name: str):
         while s < seed[0] + seed[1]:
             seeds.append(s)
             s += 1
+    # print(f"Number of seeds: {len(seeds)}")
     for seed in seeds:
         soil = get_destination_id(seed, maps.get(('seed', 'soil')))
         fertilizer = get_destination_id(soil, maps.get(('soil', 'fertilizer')))
@@ -126,13 +127,13 @@ def part2(file_name: str):
         # print(f'Seed {seed}, Soil {soil}, Fertilizer {fertilizer}, Water {water}, Light {light}, Temperature {temperature}, Humidity {humidity}, Location {location}')
         if closest_location == 0 or location < closest_location:
             closest_location = location
-    # print(seed_list)
-    # print(maps)
-    print(f'AOC {YEAR} Day {DAY} Part 2: Total: {closest_location}')
+    # # print(seed_list)
+    # # print(maps)
+    print(f'AOC {YEAR} Day {DAY} Part 2: Closest Location: {closest_location}')
 
 
 if __name__ == '__main__':
     # part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
     # part1(f'../../resources/{YEAR}/inputd{DAY}.txt')
     part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
-    part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
+    # part2(f'../../resources/{YEAR}/inputd{DAY}.txt')

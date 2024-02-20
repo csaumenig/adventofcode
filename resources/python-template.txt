@@ -1,0 +1,28 @@
+from __future__ import annotations
+from collections import namedtuple
+
+YEAR = <<YEAR>>
+DAY = <<DAY>>
+
+
+def part1(file_name: str):
+    total = 0
+    with open(file_name, 'r') as f:
+        for line in f.readlines():
+            print(line)
+    print(f'AOC {YEAR} Day {DAY} Part 1: Total: {total}')
+
+
+def part2(file_name: str):
+    total = 0
+    with open(file_name, 'r') as f:
+        for line in f.readlines():
+            print(line)
+    print(f'AOC {YEAR} Day {DAY} Part 2: Total: {total}')
+
+
+if __name__ == '__main__':
+    part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
+    part1(f'../../resources/{YEAR}/inputd{DAY}.txt')
+    # part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
+    # part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
