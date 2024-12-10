@@ -4,7 +4,8 @@ class Grid:
                  cols: int) -> None:
         self._rows = rows
         self._cols = cols
-        self._dict: dict[tuple[int, int]: str] = {}
+        self._dict: dict[tuple[int, int], str] = {}
+        self._slant_midpoints: dict[tuple[int, int], int] = {}
 
     def read_file(self,
                   file_lines: list[str]) -> None:
@@ -23,6 +24,10 @@ class Grid:
     @property
     def rows(self) -> int:
         return self._rows
+
+    @property
+    def midpoints(self) -> dict[tuple[int, int], int]:
+        return self._slant_midpoints
 
     def starters(self,
                  start_letter: str) -> list[tuple[int, int]]:
@@ -84,39 +89,32 @@ class Grid:
         valid = [x for x in valid if self.validate(row, col, x, word_length)]
         if len(valid) > 0:
             for v in valid:
+                direction = 'P'
+                midpoint: tuple[int, int] | None = None
                 word = ''
-                dir = 'P'
                 if v == 'NW':
                     for z in range(word_length):
                         word += self._dict[(row - z, col - z)]
-                    dir = 'N'
-                # elif v == 'N':
-                #     for z in range(word_length):
-                #         word += self._dict[(row - z, col)]
+                    direction = 'N'
+                    midpoint = row - 1, col - 1
                 elif v == 'NE':
                     for z in range(word_length):
                         word += self._dict[(row - z, col + z)]
-                    dir = 'P'
-                # elif v == 'E':
-                #     for z in range(word_length):
-                #         word += self._dict[(row, col + z)]
+                    direction = 'P'
+                    midpoint = row - 1, col + 1
                 elif v == 'SE':
                     for z in range(word_length):
                         word += self._dict[(row + z, col + z)]
-                    dir = 'N'
-                # elif v == 'S':
-                #     for z in range(word_length):
-                #         word += self._dict[(row + z, col)]
+                    direction = 'N'
+                    midpoint = row + 1, col + 1
                 elif v == 'SW':
                     for z in range(word_length):
                         word += self._dict[(row + z, col - z)]
-                    dir = 'P'
-                # elif v == 'W':
-                #     for z in range(word_length):
-                #         word += self._dict[(row, col - z)]
-
+                    direction = 'P'
+                    midpoint = row + 1, col - 1
                 if word == match:
-                    rd.update({dir: rd.get(dir, 0) + 1})
+                    self._slant_midpoints.update({midpoint: self._slant_midpoints.get(midpoint, 0) + 1})
+                    rd.update({direction: rd.get(direction, 0) + 1})
         return rd
 
     def validate(self,

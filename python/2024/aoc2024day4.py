@@ -35,11 +35,12 @@ def part2(file_name: str):
     num_words_by_slant: dict[str, int] = {}
     while len(start_coords) > 0:
         coords = start_coords.pop(0)
-        total += grid.num_words(coords, 'MAS')
-        ns = grid.num_words_by_slant(coords, 'MAS')
-        for k, v in ns.items():
-            num_words_by_slant.update({k: num_words_by_slant.get(k, 0) + v})
-    print(num_words_by_slant)
+        num_words_by_slant = grid.num_words_by_slant(coords, 'MAS')
+
+    midpoints = grid.midpoints
+    for k, v in midpoints.items():
+        if v > 1:
+            total += 1
     print(f'AOC {YEAR} Day {DAY} Part 2: Total: {total}')
 
 
@@ -47,4 +48,4 @@ if __name__ == '__main__':
     part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
     part1(f'../../resources/{YEAR}/inputd{DAY}.txt')
     part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
-    # part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
+    part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
