@@ -4,7 +4,7 @@ class Grid:
                  cols: int) -> None:
         self._rows = rows
         self._cols = cols
-        self._dict: dict[tuple[int, int], str] = {}
+        self._dict: dict[tuple[int, int], any] = {}
 
     def read_file(self,
                   file_lines: list[str]) -> None:
@@ -12,7 +12,7 @@ class Grid:
         for line in file_lines:
             col = 0
             while col < len(line.strip()):
-                self._dict.update({(row, col): line[col]})
+                self._dict.update({(row, col): line[col].strip()})
                 col += 1
             row += 1
 
@@ -28,7 +28,7 @@ class Grid:
         s = ''
         if self._dict and len(self._dict) > 0:
             for k, v in self._dict.items():
-                s += f'{k}: {v}\n'
+                s += f'{k}: {v}'
         return s
 
     def __str__(self) -> str:

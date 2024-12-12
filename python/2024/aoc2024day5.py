@@ -1,5 +1,4 @@
 from __future__ import annotations
-from collections import namedtuple
 from random import randint
 
 YEAR = 2024

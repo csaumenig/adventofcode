@@ -1,6 +1,4 @@
 from __future__ import annotations
-from collections import namedtuple
-from operator import itemgetter
 
 from models.grid import Grid
 
@@ -160,7 +158,6 @@ def part2(file_name: str):
     grid: WordSearchGrid = read_file(file_name)
     total = 0
     start_coords = grid.starters('M')
-    num_words_by_slant: dict[str, int] = {}
     while len(start_coords) > 0:
         coords = start_coords.pop(0)
         num_words_by_slant = grid.num_words_by_slant(coords, 'MAS')
