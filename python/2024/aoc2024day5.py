@@ -30,7 +30,6 @@ def sort_pages(pages: list[int],
 
     low, high = [], []
 
-    # Select your `pivot` element randomly
     pivot = pages[randint(0, len(pages) - 1)]
     after = page_orders.get(pivot, [])
     for item in pages:
@@ -38,9 +37,6 @@ def sort_pages(pages: list[int],
             high.append(item)
         else:
             low.append(item)
-
-    # The final result combines the sorted `low` list
-    # with the `same` list and the sorted `high` list
     return sort_pages(low, page_orders) + sort_pages(high, page_orders)
 
 
