@@ -1,99 +1,84 @@
 from __future__ import annotations
-from random import randint
-import re
-
-from utils.util import dec_to_bin
 
 YEAR = 2024
 DAY = 7
 
-OPS = ('+', '*')
-eq_string = r"(\d+(\+|\*)\d+)"
-eq_pattern = re.compile(eq_string)
 
-
-def sort_operators(operators: list[str]) -> list[str]:
-    if len(operators) < 2:
-        return operators
-
-    low, same, high = [], [], []
-
-    pivot = operators[randint(0, len(operators) - 1)]
-    number_of_pivot_mult = pivot.count('*')
-    for item in operators:
-        number_of_item_mult = item.count('*')
-        if number_of_item_mult < number_of_pivot_mult:
-            low.append(item)
-        elif number_of_item_mult == number_of_pivot_mult:
-            same.append(item)
-        elif number_of_item_mult > number_of_pivot_mult:
-            high.append(item)
-    return sort_operators(low) + same + sort_operators(high)
-
-
-def to_operator(bin_string: str) -> str:
-    return ''.join([OPS[int(o)] for o in bin_string])
-
-
-def evaluate_line(line: str) -> bool:
+def read_line(line: str) -> tuple[int, list[int]]:
     split_line = line.strip().split(':')
     end_value = int(split_line[0])
     operands = [int(x) for x in split_line[1].strip().split(' ')]
-    num_operators = len(operands) - 1
-    num_values = 2**num_operators
-    print(f'Number of Operators: {num_operators}')
-    print(f'Number of Values: {num_values}')
-    print(f'Target Value: {end_value}')
-    operators = sort_operators([to_operator(dec_to_bin(x, len(operands)-1)) for x in range(num_values)])
-    # print(operators)
-    equation = '{}'.join([str(x) for x in operands])
+    return end_value, operands
 
-    for operator in operators:
-        this_equation = equation.format(*operator)
-        new_equation = this_equation
-        # print(this_equation)
-        match = eq_pattern.match(new_equation)
-        while match:
-            mini = eval(match.string[match.start():match.end()])
-            if mini > end_value:
-                match = None
-                new_equation = None
-            else:
-                new_equation = str(mini) + new_equation[match.end():]
-                # print(this_equation)
-                match = eq_pattern.match(new_equation)
-        if new_equation is None:
-            continue
-        # print(f'{this_equation} = {new_equation}')
-        if int(new_equation) == end_value:
-            print(f'{this_equation} = {new_equation}')
-            return True
-        # this_value = eval(this_equation)
-        # print(f'{this_equation} = {this_value}')
 
-    # # print(equation)
-    return False
+def operate(start: int,
+            rest: list[int],
+            concatenate: bool) -> list[int]:
+    plus = start + rest[0]
+    concat = None
+    if concatenate:
+        concat = eval(f'{start}{rest[0]}')
+    mult = start * rest[0]
+
+    if len(rest) == 1:
+        if concatenate:
+            return [plus, concat, mult]
+
+        return [plus, mult]
+
+    if concatenate:
+        return operate(plus, rest[1:], concatenate) + operate(concat, rest[1:], concatenate) + operate(mult, rest[1:], concatenate)
+
+    return operate(plus, rest[1:], concatenate) + operate(mult, rest[1:], concatenate)
+
+
+def conc(x: int,
+         y: int) -> int:
+    return eval(f'{x}{y}')
+
+
+def evaluate_line(line: str,
+                  concatenate: bool) ->  tuple[bool, int]:
+    end_value, operands = read_line(line)
+    from functools import reduce
+    from operator import add, mul
+
+    if end_value == reduce(add, operands) or end_value == reduce(mul, operands):
+        return True, end_value
+
+    elif concatenate and end_value == reduce(conc, operands):
+        return True, end_value
+
+    else:
+        results =  operate(operands[0], operands[1:], concatenate)
+        if end_value in results:
+            return True, end_value
+
+    return False, end_value
 
 
 def part1(file_name: str):
     total = 0
     with open(file_name, 'r') as f:
-        for line in f.readlines():
-            if evaluate_line(line):
-                total += 1
+        for line in [x.strip() for x in f.readlines()]:
+            r, t = evaluate_line(line, False)
+            if r is True:
+                total += t
     print(f'AOC {YEAR} Day {DAY} Part 1: Total: {total}')
 
 
 def part2(file_name: str):
     total = 0
     with open(file_name, 'r') as f:
-        for line in f.readlines():
-            print(line)
+        for line in [x.strip() for x in f.readlines()]:
+            r, t = evaluate_line(line, True)
+            if r is True:
+                total += t
     print(f'AOC {YEAR} Day {DAY} Part 2: Total: {total}')
 
 
 if __name__ == '__main__':
-    # part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
+    part1(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
     part1(f'../../resources/{YEAR}/inputd{DAY}.txt')
-    # part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
-    # part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
+    part2(f'../../resources/{YEAR}/inputd{DAY}-a.txt')
+    part2(f'../../resources/{YEAR}/inputd{DAY}.txt')
