@@ -5,16 +5,17 @@ OPT_STRING="y:d:"
 min_year=2015
 max_year=$(date +%Y)
 min_day=1
-max_day=12
+max_day_old=25
+max_day_new=12
 year=0
 day=0
+
 help_function()
 {
    echo ""
    echo "Usage: $0 -y YEAR -d DAY"
    echo -e "\t-y Four digit year between ${min_year} and ${max_year} (inclusive)"
    echo -e "\t-d One or two digit day between ${min_day} and ${max_day} (inclusive)"
-   exit 1 # Exit script after printing help
 }
 
 while getopts ${OPT_STRING} opt; do
@@ -36,20 +37,26 @@ while getopts ${OPT_STRING} opt; do
         echo "day must be greater than or equal to ${min_day}"
         exit 1
       fi
-      if [ "$((day))" -gt "$((max_day))" ]; then
-        echo "day must be less than or equal to ${max_day}"
-        exit 1
-      fi
       ;;
     ?)
       echo "Invalid option: -${OPTARG}."
       help_function
-      ex  it 1
+      exit 1
       ;;
   esac
 done
 
-if [ ! -z "${year}" ] && [ ! -z "${day}" ]; then
+if [ -n "${year}" ] && [ -n "${day}" ]; then
+  max_day="${max_day_new}"
+  if [ "${year}" -lt "2025" ]; then
+    max_day="${max_day_old}"
+  fi
+
+  if [ "${day}" -gt "${max_day}" ]; then
+    echo "day must be less than or equal to ${max_day}"
+    exit 1
+  fi
+
   python_file_name="/Users/chris/PycharmProjects/adventofcode/python/${year}/aoc${year}day${day}.py"
   resource_file_name="/Users/chris/PycharmProjects/adventofcode/resources/${year}/inputd${day}.txt"
   resource_a_file_name="/Users/chris/PycharmProjects/adventofcode/resources/${year}/inputd${day}-a.txt"
