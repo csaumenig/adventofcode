@@ -5,7 +5,7 @@ OPT_STRING="y:d:"
 min_year=2015
 max_year=$(date +%Y)
 min_day=1
-max_day=25
+max_day=12
 year=0
 day=0
 help_function()
