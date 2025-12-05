@@ -120,6 +120,20 @@ class Grid:
                 l.append(k)
         return l
 
+    def cells(self) -> list[tuple[tuple[int, int], any]]:
+        l: list[tuple[tuple[int, int], any]] = []
+        for r in range(self.rows):
+            for c in range(self.cols):
+                l.append(((r,c),self._dict.get((r,c))))
+        return l
+
+    @staticmethod
+    def new_from_grid(grid: Grid) -> Grid:
+        new_grid = Grid(grid.rows, grid.cols)
+        for c in grid.cells():
+            new_grid.set_value(c[0], c[1])
+        return new_grid
+
     @staticmethod
     def new_from_file(file_name: str) -> Grid:
         cols = 0
