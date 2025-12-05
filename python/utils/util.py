@@ -50,9 +50,17 @@ def nth_string_replace(source: str,
         return source[:find] + new + source[find + len(old):]
     return source
 
+def factors(n):
+    """
+    For a given integer find all factors
+    Taken from: https://stackoverflow.com/a/6800214
+    """
+    from functools import reduce
+    return sorted(set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0))))
 
 if __name__ == '__main__':
     bins = ['100', '010', '00000000001', '101', '000000000001011', '1111', '000000000010110']
     [bin_to_dec(b) for b in bins]
     decs = [4, 2, 1, 5, 11, 15, 22]
     [dec_to_bin(d, d) for d in decs]
+
