@@ -16,7 +16,7 @@ def dec_to_bin(dec_string, spaces) -> str:
 
 def find_sum(n: int,
              total: int,
-             jump:int = 1,
+             jump: int = 1,
              seq=()):
     """
     Find all the possible ways that n numbers can add up to total
@@ -25,8 +25,30 @@ def find_sum(n: int,
     if n == 0:
         if total == 0 and jump == 1: yield seq
         return
-    for i in range(0, total+1):
+    for i in range(0, total + 1):
         yield from find_sum(n - 1, total - i, jump if i % jump else 1, seq + (i,))
+
+
+def nth_string_replace(source: str,
+                       old: str,
+                       new: str,
+                       n: int) -> str:
+    """
+    Replaces the nth occurrence of old in source with new
+    Taken From: https://stackoverflow.com/a/35092436
+    """
+    find = source.find(old)
+    # If find is not -1 we have found at least one match for the substring
+    i = find != -1
+    # loop util we find the nth or we find no match
+    while find != -1 and i != n:
+        # find + 1 means we start searching from after the last match
+        find = source.find(old, find + 1)
+        i += 1
+    # If i is equal to n we found nth match so replace
+    if i == n:
+        return source[:find] + new + source[find + len(old):]
+    return source
 
 
 if __name__ == '__main__':
