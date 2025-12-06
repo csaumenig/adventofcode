@@ -50,6 +50,7 @@ def nth_string_replace(source: str,
         return source[:find] + new + source[find + len(old):]
     return source
 
+
 def factors(n):
     """
     For a given integer find all factors
@@ -58,9 +59,40 @@ def factors(n):
     from functools import reduce
     return sorted(set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0))))
 
+
+def reduce_ranges(ranges: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """
+    Given a list of ranges (tuples of the form (low, high) where low and high are integers and low <= high), reduce it
+    so that all overlapping ranges are combined
+    """
+    ranges.sort(key=lambda x: x[0])
+    reduced_ranges = [ranges[0]]
+
+    for current_start, current_end in ranges[1:]:
+        last_reduced_start, last_reduced_end = reduced_ranges[-1]
+
+        if current_start <= last_reduced_end + 1:
+            reduced_ranges[-1] = (last_reduced_start, max(last_reduced_end, current_end))
+        else:
+            reduced_ranges.append((current_start, current_end))
+    return reduced_ranges
+
+
+# def reduce_ranges2(ranges: list[tuple[int, int]]) -> list[tuple[int, int]]:
+#     """
+#     Needs work at the moment
+#     Given a list of ranges (tuples of the form (low, high) where low and high are integers and low <= high), reduce it
+#     so that all overlapping ranges are combined
+#     """
+#     from functools import reduce
+#     ranges.sort(key=lambda x: x[0])
+#
+#     reduced_ranges = reduce(lambda x, y: (x[0], max(x[1], y[1])) if y[0] <= x[1] + 1 else (y[0], y[1]), ranges)
+#     print(reduced_ranges)
+#     return reduced_ranges
+
 if __name__ == '__main__':
     bins = ['100', '010', '00000000001', '101', '000000000001011', '1111', '000000000010110']
     [bin_to_dec(b) for b in bins]
     decs = [4, 2, 1, 5, 11, 15, 22]
     [dec_to_bin(d, d) for d in decs]
-
