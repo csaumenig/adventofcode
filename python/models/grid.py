@@ -95,9 +95,9 @@ class Grid:
         for k, v in self._dict.items():
             if v == value:
                 l.append(k)
-        if len(list) > 1:
-            raise ValueError(f'More than one cell with value {value}: {list}')
-        elif len(list) == 0:
+        if len(l) > 1:
+            raise ValueError(f'More than one cell with value {value}: {l}')
+        elif len(l) == 0:
             return None
         return l[0]
 
@@ -170,48 +170,6 @@ class Grid:
         return new_grid
 
 
-class Point:
-    def __init__(self,
-                 x: int,
-                 y: int) -> None:
-        self._x = x
-        self._y = y
-
-    def __eq__(self, other) -> bool:
-        if isinstance(other, Point):
-            return self.__key__() == other.__key__()
-        return NotImplemented
-
-    def __hash__(self) -> int:
-        return hash(self.__key__())
-
-    def __repr__(self) -> str:
-        return f'Point(x={self.x}, y={self.y})'
-
-    def __str__(self) -> str:
-        return self.__repr__()
-
-    def __key__(self) -> tuple[int, int]:
-        return self._x, self._y
-
-    @property
-    def x(self) -> int:
-        return self._x
-
-    @property
-    def y(self) -> int:
-        return self._y
-
-    @staticmethod
-    def valid(p: Point,
-              x_range: tuple[int, int],
-              y_range: tuple[int, int]):
-        if p:
-            if p.x in range(x_range[0], x_range[1]) and p.y in range(y_range[0], y_range[1]):
-                return True
-        return False
-
-
 class GridXY:
     def __init__(self,
                  rows: int,
@@ -262,3 +220,100 @@ class GridXY:
                 self._dict[key] = line[x1].strip()
                 x1 += 1
             y1 += 1
+
+
+class Point:
+    def __init__(self,
+                 x: int,
+                 y: int) -> None:
+        self._x = x
+        self._y = y
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Point):
+            return self.__key__() == other.__key__()
+        return NotImplemented
+
+    def __hash__(self) -> int:
+        return hash(self.__key__())
+
+    def __repr__(self) -> str:
+        return f'Point(x={self.x}, y={self.y})'
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
+    def __key__(self) -> tuple[int, int]:
+        return self._x, self._y
+
+    @property
+    def x(self) -> int:
+        return self._x
+
+    @property
+    def y(self) -> int:
+        return self._y
+
+    @staticmethod
+    def valid(p: Point,
+              x_range: tuple[int, int],
+              y_range: tuple[int, int]):
+        if p:
+            if p.x in range(x_range[0], x_range[1]) and p.y in range(y_range[0], y_range[1]):
+                return True
+        return False
+
+
+class Point3D:
+    def __init__(self,
+                 x: int,
+                 y: int,
+                 z: int) -> None:
+        self._x = x
+        self._y = y
+        self._z = z
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Point):
+            return self.__key__() == other.__key__()
+        return NotImplemented
+
+    def __hash__(self) -> int:
+        return hash(self.__key__())
+
+    def __repr__(self) -> str:
+        return f'Point(x={self.x}, y={self.y}, z={self._z})'
+
+    def __str__(self) -> str:
+        return self.__repr__()
+
+    def __key__(self) -> tuple[int, int, int]:
+        return self._x, self._y, self._z
+
+    @property
+    def x(self) -> int:
+        return self._x
+
+    @property
+    def y(self) -> int:
+        return self._y
+
+    @property
+    def z(self) -> int:
+        return self._z
+
+    @staticmethod
+    def straight_line_distance(p1: Point3D,
+                               p2: Point3D) -> float:
+        from math import pow, sqrt
+        return sqrt(pow((p1.x - p2.x), 2) + pow((p1.y - p2.y), 2) + pow((p1.z - p2.z), 2))
+
+    @staticmethod
+    def valid(p: Point3D,
+              x_range: tuple[int, int],
+              y_range: tuple[int, int],
+              z_range: tuple[int, int]) -> bool:
+        if p:
+            if p.x in range(x_range[0], x_range[1]) and p.y in range(y_range[0], y_range[1]) and p.z in range(z_range[0], z_range[1]):
+                return True
+        return False
