@@ -9,19 +9,15 @@ class Grid:
         self._cols = cols
         self._dict: dict[tuple[int, int], any] = {}
         self._neighbors: dict[tuple[int, int], list[tuple[int, int]]] = {}
-        self.__init_neighbors()
-
-    def __key(self) -> tuple[int, int, str]:
-        import json
-        return self._rows, self._cols, json.dumps(self._dict, default=str, ensure_ascii=True, separators=(',', ':'))
-
-    def __hash__(self) -> int:
-        return hash(self.__key())
+        self.__init_neighbors__()
 
     def __eq__(self, other) -> bool:
         if isinstance(other, Grid):
-            return self.__key() == other.__key()
+            return self.__key__() == other.__key__()
         return NotImplemented
+
+    def __hash__(self) -> int:
+        return hash(self.__key__())
 
     def __repr__(self) -> str:
         s = ''
@@ -31,7 +27,7 @@ class Grid:
                 if k[0] > last_row:
                     s += '\n'
                     last_row = k[0]
-                s += self.__simple_print(k)
+                s += self.__simple_print__(k)
                 # s += self.__grid_print(k)
                 # s += self.__neighbor_print(k)
         return s
@@ -39,27 +35,12 @@ class Grid:
     def __str__(self) -> str:
         return self.__repr__()
 
-    def __simple_print(self,
-                       key: tuple[int, int]) -> str:
-        return f'{self._dict[key]}'
+    def __key__(self) -> tuple[int, int, str]:
+        import json
+        return self._rows, self._cols, json.dumps(self._dict, default=str, ensure_ascii=True, separators=(',', ':'))
 
-    def __neighbor_print(self,
-                         key: tuple[int, int]) -> str:
-        return f'{key}: {len(self.neighbors(key))}'
-
-    def __grid_print(self,
-                     key: tuple[int, int]) -> str:
-        return f'{key}: {self._dict[key]}'
-
-    def __init_neighbors(self) -> None:
-        for r in range(self._rows):
-            for c in range(self._cols):
-                p = (r, c)
-                l: list[tuple[int, int]] = self.__gen_neighbors(p)
-                self._neighbors.update({p: l})
-
-    def __gen_neighbors(self,
-                        p: tuple[int, int]) -> list[tuple[int, int]]:
+    def __gen_neighbors__(self,
+                          p: tuple[int, int]) -> list[tuple[int, int]]:
         l: list[tuple[int, int]] = []
         r_s = p[0]
         r_e = p[0]
@@ -81,6 +62,25 @@ class Grid:
                     l.append((r, c))
         return l
 
+    def __grid_print__(self,
+                       key: tuple[int, int]) -> str:
+        return f'{key}: {self._dict[key]}'
+
+    def __init_neighbors__(self) -> None:
+        for r in range(self._rows):
+            for c in range(self._cols):
+                p = (r, c)
+                l: list[tuple[int, int]] = self.__gen_neighbors__(p)
+                self._neighbors.update({p: l})
+
+    def __neighbor_print__(self,
+                           key: tuple[int, int]) -> str:
+        return f'{key}: {len(self.neighbors(key))}'
+
+    def __simple_print__(self,
+                         key: tuple[int, int]) -> str:
+        return f'{self._dict[key]}'
+
     @property
     def cols(self) -> int:
         return self._cols
@@ -89,14 +89,37 @@ class Grid:
     def rows(self) -> int:
         return self._rows
 
-    def set_value(self,
-                  p: tuple[int, int],
-                  v: any) -> None:
-        self._dict[p] = v
+    def cell_by_value(self,
+                      value: any) -> tuple[int, int] | None:
+        l: list[tuple[int, int]] = []
+        for k, v in self._dict.items():
+            if v == value:
+                l.append(k)
+        if len(list) > 1:
+            raise ValueError(f'More than one cell with value {value}: {list}')
+        elif len(list) == 0:
+            return None
+        return l[0]
 
-    def value(self,
-              p: tuple[int, int]) -> any:
-        return self._dict.get(p, '')
+    def cells(self) -> list[tuple[tuple[int, int], any]]:
+        l: list[tuple[tuple[int, int], any]] = []
+        for r in range(self.rows):
+            for c in range(self.cols):
+                l.append(((r, c), self._dict.get((r, c))))
+        return l
+
+    def cells_by_value(self,
+                       value: any) -> list[tuple[int, int]]:
+        l: list[tuple[int, int]] = []
+        for k, v in self._dict.items():
+            if v == value:
+                l.append(k)
+        return l
+
+    def cells_by_value_and_row(self,
+                               value: any,
+                               row: int) -> list[tuple[int, int]]:
+        return [c for c in self.cells_by_value(value) if c[0] == row]
 
     def neighbors(self,
                   p: tuple[int, int]) -> list[tuple[int, int]]:
@@ -112,27 +135,14 @@ class Grid:
                 col += 1
             row += 1
 
-    def cells_by_value(self,
-                       value: any) -> list[tuple[int, int]]:
-        l: list[tuple[int, int]] = []
-        for k, v in self._dict.items():
-            if v == value:
-                l.append(k)
-        return l
+    def set_value(self,
+                  p: tuple[int, int],
+                  v: any) -> None:
+        self._dict[p] = v
 
-    def cells(self) -> list[tuple[tuple[int, int], any]]:
-        l: list[tuple[tuple[int, int], any]] = []
-        for r in range(self.rows):
-            for c in range(self.cols):
-                l.append(((r,c),self._dict.get((r,c))))
-        return l
-
-    @staticmethod
-    def new_from_grid(grid: Grid) -> Grid:
-        new_grid = Grid(grid.rows, grid.cols)
-        for c in grid.cells():
-            new_grid.set_value(c[0], c[1])
-        return new_grid
+    def value(self,
+              p: tuple[int, int]) -> any:
+        return self._dict.get(p, '')
 
     @staticmethod
     def new_from_file(file_name: str) -> Grid:
@@ -152,6 +162,13 @@ class Grid:
         g.read_file(tmp)
         return g
 
+    @staticmethod
+    def new_from_grid(grid: Grid) -> Grid:
+        new_grid = Grid(grid.rows, grid.cols)
+        for c in grid.cells():
+            new_grid.set_value(c[0], c[1])
+        return new_grid
+
 
 class Point:
     def __init__(self,
@@ -160,22 +177,22 @@ class Point:
         self._x = x
         self._y = y
 
-    def __key(self) -> tuple[int, int]:
-        return self._x, self._y
-
-    def __hash__(self) -> int:
-        return hash(self.__key())
-
     def __eq__(self, other) -> bool:
         if isinstance(other, Point):
-            return self.__key() == other.__key()
+            return self.__key__() == other.__key__()
         return NotImplemented
+
+    def __hash__(self) -> int:
+        return hash(self.__key__())
 
     def __repr__(self) -> str:
         return f'Point(x={self.x}, y={self.y})'
 
     def __str__(self) -> str:
         return self.__repr__()
+
+    def __key__(self) -> tuple[int, int]:
+        return self._x, self._y
 
     @property
     def x(self) -> int:
@@ -203,17 +220,13 @@ class GridXY:
         self._cols = cols
         self._dict: dict[Point, any] = {}
 
-    def __key(self) -> tuple[int, int, str]:
-        import json
-        return self._rows, self._cols, json.dumps(self._dict, default=str, ensure_ascii=True, separators=(',', ':'))
-
-    def __hash__(self) -> int:
-        return hash(self.__key())
-
     def __eq__(self, other) -> bool:
         if isinstance(other, GridXY):
-            return self.__key() == other.__key()
+            return self.__key__() == other.__key__()
         return NotImplemented
+
+    def __hash__(self) -> int:
+        return hash(self.__key__())
 
     def __repr__(self) -> str:
         s = ''
@@ -226,6 +239,10 @@ class GridXY:
 
     def __str__(self) -> str:
         return self.__repr__()
+
+    def __key__(self) -> tuple[int, int, str]:
+        import json
+        return self._rows, self._cols, json.dumps(self._dict, default=str, ensure_ascii=True, separators=(',', ':'))
 
     @property
     def cols(self) -> int:
