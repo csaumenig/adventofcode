@@ -93,6 +93,6 @@ def reduce_ranges(ranges: list[tuple[int, int]]) -> list[tuple[int, int]]:
 
 if __name__ == '__main__':
     bins = ['100', '010', '00000000001', '101', '000000000001011', '1111', '000000000010110']
-    [bin_to_dec(b) for b in bins]
+    print(''.join([f'{b} => {bin_to_dec(b)}\n' for b in bins]))
     decs = [4, 2, 1, 5, 11, 15, 22]
     [dec_to_bin(d, d) for d in decs]

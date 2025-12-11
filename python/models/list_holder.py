@@ -5,6 +5,7 @@ class ListHolder(ABC):
                  my_list: str,
                  t: type) -> None:
         self._items = list(map(t, my_list.split(',')))
+        self._type = t
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
@@ -14,15 +15,16 @@ class ListHolder(ABC):
     def __hash__(self) -> int:
         return hash(self.__key__())
 
+    @abstractmethod
     def __repr__(self) -> str:
-        return f"{self.__class__}({self.__hash__()}) [Items = [{', '.join([str(i) for i in self._items])}]"
+        pass
 
     def __str__(self) -> str:
         return self.__repr__()
 
-    def __key__(self) -> tuple[list[int]]:
-        return (self._items,)
+    def __key__(self) -> tuple:
+        return tuple(self._items)
 
     @property
-    def items(self) -> list[type]:
+    def items(self) -> list:
         return self._items
