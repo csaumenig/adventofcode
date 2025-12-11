@@ -91,6 +91,41 @@ def reduce_ranges(ranges: list[tuple[int, int]]) -> list[tuple[int, int]]:
 #     print(reduced_ranges)
 #     return reduced_ranges
 
+def dfs_start_end(edges, paths, visited, start, end, exclude=None, include=None):
+    if len(visited) == 0:
+        visited.append(start)
+
+    for neighbor in edges.get(start, []):
+        if exclude and neighbor in exclude:
+            continue
+        else:
+            visited.append(neighbor)
+            if neighbor == end:
+                paths.append([x for x in visited])
+                visited.pop()
+                return paths
+            else:
+                paths = dfs_start_end(edges, paths, visited, neighbor, end, exclude, include)
+                visited.pop()
+    if include:
+        paths = [p for p in paths if include in p]
+    return paths
+
+def count_paths(edges, paths, start, end):
+    if start == end:
+        return 1
+
+    if start in paths:
+        return paths.get(start)
+
+    total = 0
+    for neighbor in edges.get(start, []):
+        total += count_paths(edges, paths, neighbor, end)
+
+    paths[start] = total
+    return total
+
+
 if __name__ == '__main__':
     bins = ['100', '010', '00000000001', '101', '000000000001011', '1111', '000000000010110']
     print(''.join([f'{b} => {bin_to_dec(b)}\n' for b in bins]))

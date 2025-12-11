@@ -33,7 +33,7 @@ class Graph:
 
     def expand(self,
                num_times: int) -> None:
-        
+        pass
 
 
 
