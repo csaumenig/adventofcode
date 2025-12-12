@@ -91,6 +91,7 @@ def reduce_ranges(ranges: list[tuple[int, int]]) -> list[tuple[int, int]]:
 #     print(reduced_ranges)
 #     return reduced_ranges
 
+
 def dfs_start_end(edges, paths, visited, start, end, exclude=None, include=None):
     if len(visited) == 0:
         visited.append(start)
@@ -111,6 +112,7 @@ def dfs_start_end(edges, paths, visited, start, end, exclude=None, include=None)
         paths = [p for p in paths if include in p]
     return paths
 
+
 def count_paths(edges, paths, start, end):
     if start == end:
         return 1
@@ -124,6 +126,19 @@ def count_paths(edges, paths, start, end):
 
     paths[start] = total
     return total
+
+
+def all_comb_to_k(items: list,
+                  k: int) -> list[tuple]:
+    from itertools import combinations
+    combos: list[tuple] = []
+    for r in range(k + 1):
+        if r == 0:
+            combos.append(())
+        else:
+            for combo in combinations(items, r):
+                combos.append(tuple(combo))
+    return combos
 
 
 if __name__ == '__main__':
