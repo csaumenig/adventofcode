@@ -1,5 +1,7 @@
 .idea/
 venv/
 output/
-resources/
+resources/20**/*
+.DS_Store
+*.pyc
 
